@@ -7,57 +7,63 @@ public class Card : MonoBehaviour, Object_Interactable
 {
     // 카드를 나타내는 인덱스
     public int Idx;
-    public TextMeshProUGUI cardNum;
-    public GameObject back;
-    public Sprite[] frontSprite;
+    public Sprite[] frontsprites;
+    public Sprite backSprite;
 
-    private void Awake()
+    public bool isFront;
+
+
+    Sprite curFrontSprite;
+    Sprite curBackSprite;
+    Animator anim;
+    SpriteRenderer sp;
+
+
+    void Awake()
     {
-
+        anim = GetComponent<Animator>();
+        sp = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
         CardChange(Idx);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        float rotationY = gameObject.transform.rotation.y;
-        Debug.Log(gameObject.transform.rotation.y);
-        if (rotationY >= 0.5f && rotationY <= 1f || rotationY <= -0.5f && rotationY >= -1f)
-        {
-            cardNum.gameObject.SetActive(true);
-            back.SetActive(false);
-        }
-        else
-        {
-            cardNum.gameObject.SetActive(false);
-            back.SetActive(true);
-        }
-    }
 
     public void Interact()
     {
-        StartCoroutine(CardFlip());
+        if (isFront) return;
+        CardManager.Inst.getCard(this);
     }
 
-    IEnumerator CardFlip()
+    public void Flip(bool isFront)
     {
-        int i = 0;
-        while (true)
+        if (isFront)
         {
-            gameObject.transform.Rotate(0, 5, 0);
-            i++;
-            if (i == 36) break;
-            yield return new WaitForSeconds(0.02f);
+            this.isFront = true;
+            anim.SetTrigger("FlipFront");
         }
-        yield return null;
-    }
+        else
+        {
+            this.isFront = false;
+            anim.SetTrigger("FlipBack");
 
+        }
+    }
     public void CardChange(int idx)
     {
-        cardNum.text = idx.ToString();
+        curFrontSprite = frontsprites[idx];
+        curBackSprite = backSprite;
     }
 
+    #region 애니메이터 호출 함수
+    public void showFront()
+    {
+        sp.sprite = curFrontSprite;
+    }
+    public void showBack()
+    {
+        sp.sprite = curBackSprite;
+    }
+    #endregion
 }
