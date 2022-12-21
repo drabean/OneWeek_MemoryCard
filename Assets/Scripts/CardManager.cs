@@ -7,12 +7,13 @@ public class CardManager : MonoBehaviour
     public static CardManager Inst;
 
     public GameObject CardPrefab;
+    public GameObject[] BoardPrefabs;
 
     public List<Card> cards;
 
-    public int difficulty = 4;
+    int difficulty;
 
-    public GameBoard board;
+    GameBoard board;
 
     public Card curCard1;
     public Card curCard2;
@@ -24,12 +25,51 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
+        switch (GameDatas.Inst.difficulty)
+        {
+            case DIFFICULTY.EASY:
+                board = Instantiate(BoardPrefabs[0], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                break;
+            case DIFFICULTY.NORMAL:
+                board = Instantiate(BoardPrefabs[2], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                difficulty = 8;
+                break;
+            case DIFFICULTY.HARD:
+                board = Instantiate(BoardPrefabs[3], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                difficulty = 10;
+                break;
+            case DIFFICULTY.MASTER:
+                board = Instantiate(BoardPrefabs[4], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                difficulty = 12;
+                break;
+        }
+
+        resetStage();
+    }
+
+    public void resetStage()
+    {
+        switch (GameDatas.Inst.difficulty)
+        {
+            case DIFFICULTY.EASY:
+                difficulty = 4;
+                break;
+            case DIFFICULTY.NORMAL:
+                difficulty = 8;
+                break;
+            case DIFFICULTY.HARD:
+                difficulty = 10;
+                break;
+            case DIFFICULTY.MASTER:
+                difficulty = 12;
+                break;
+        }
         generateCard();
-
         suffleCard();
-
         board.setCardsPosition(cards);
     }
+
+
     public void generateCard()
     {
         for (int i = 0; i < difficulty / 2; i++)
@@ -39,7 +79,7 @@ public class CardManager : MonoBehaviour
                 Card temp = Instantiate(CardPrefab).GetComponent<Card>();
 
                 temp.CardChange(i);
-                temp.name = "card " + (i+1)+" "+(j+1);
+                temp.name = "card " + (i + 1) + " " + (j + 1);
             }
         }
     }
