@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool timerAvailable;
     public void GameStart()
     {
 
@@ -13,4 +14,16 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    public void Click_Ready()
+    {
+        Debug.Log("Game Start");
+        timerAvailable = true;
+    }
+
+    [ContextMenu("STOP")]
+    public void stop()
+    {
+        timerAvailable = false;
+    }
+    
 }
