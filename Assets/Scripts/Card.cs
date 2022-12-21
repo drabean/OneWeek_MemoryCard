@@ -24,12 +24,11 @@ public class Card : MonoBehaviour, Object_Interactable
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
     }
-    void Start()
+
+    void OnDestroy()
     {
-        CardChange(Idx);
+        CardManager.Inst.cards.Remove(this);
     }
-
-
     public void Interact()
     {
         if (isFront) return;
@@ -52,6 +51,8 @@ public class Card : MonoBehaviour, Object_Interactable
     }
     public void CardChange(int idx)
     {
+        CardManager.Inst.cards.Add(this);
+        this.Idx = idx;
         curFrontSprite = frontsprites[idx];
         curBackSprite = backSprite;
     }

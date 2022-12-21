@@ -7,7 +7,7 @@ public class GameBoard : MonoBehaviour
     public GameObject[] CardPositions;
 
     
-    public void setCardsPosition(List<GameObject> cards)
+    public void setCardsPosition(List<Card> cards)
     {
         for(int i = 0; i < CardPositions.Length; i++)
         {
