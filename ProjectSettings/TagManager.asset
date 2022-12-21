@@ -47,3 +47,6 @@ TagManager:
   - name: Object
     uniqueID: 3624230629
     locked: 0
+  - name: FrontFloor
+    uniqueID: 121781051
+    locked: 0
