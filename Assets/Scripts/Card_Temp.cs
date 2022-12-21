@@ -6,10 +6,9 @@ public class Card_Temp : MonoBehaviour, Object_Interactable
 {
     public int cardIndex;
 
-
     public void Interact()
     {
-        Debug.Log("ASD");
+        Debug.Log("Card Selected" + cardIndex);
     }
 
 }
