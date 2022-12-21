@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool timerAvailable;
+    public GameObject readyBtn;
+
     public void GameStart()
     {
 
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Start");
         timerAvailable = true;
+        readyBtn.SetActive(false);
     }
 
     [ContextMenu("STOP")]
