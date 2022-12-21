@@ -8,7 +8,7 @@ public class CardManager : MonoBehaviour
 
     public GameObject CardPrefab;
 
-    public List<GameObject> cards;
+    public List<Card> cards;
 
     public int difficulty = 4;
 
@@ -36,12 +36,10 @@ public class CardManager : MonoBehaviour
         {
             for (int j = 0; j < 2; j++)
             {
-                GameObject temp = Instantiate(CardPrefab);
+                Card temp = Instantiate(CardPrefab).GetComponent<Card>();
 
-                temp.GetComponent<Card>().Idx = i;
-                temp.name = "card " + (i * 2 + j);
-
-                cards.Add(temp);
+                temp.CardChange(i);
+                temp.name = "card " + (i+1)+" "+(j+1);
             }
         }
     }
@@ -51,7 +49,7 @@ public class CardManager : MonoBehaviour
         for (int i = 0; i < cards.Count; i++)
         {
             int randNum = Random.Range(0, cards.Count);
-            GameObject temp = cards[i];
+            Card temp = cards[i];
             cards[i] = cards[randNum];
             cards[randNum] = temp;
         }
