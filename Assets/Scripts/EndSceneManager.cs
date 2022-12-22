@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndSceneManager : MonoBehaviour
 {
@@ -40,5 +41,10 @@ public class EndSceneManager : MonoBehaviour
         }
 
         Text_Difficulty.text = difficultyText;
+    }
+
+    public void ExitRoom()
+    {
+        SceneManager.LoadScene("1.StartSCene");
     }
 }
