@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
 
     public TextMeshProUGUI timeText;
     float time;
-
+    
     /// <summary>
     /// 타이머를 시작합니다.
     /// </summary>
@@ -48,4 +48,6 @@ public class Timer : MonoBehaviour
     {
         timeText.text = time.ToString("N2");
     }
+
+
 }
