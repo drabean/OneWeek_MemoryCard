@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void Click_Ready()
     {
         Debug.Log("Game Start");
+        CardManager.Inst.resetStage();
         timer.StartTimer();
         readyBtn.SetActive(false);
     }

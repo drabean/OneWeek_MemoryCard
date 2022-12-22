@@ -48,7 +48,7 @@ public class CardManager : MonoBehaviour
         }
         stageCount = 4;
 
-        resetStage();
+        //resetStage();
     }
     #region Stage
 
@@ -79,18 +79,7 @@ public class CardManager : MonoBehaviour
         allChangeCard(false);
 
     }
-    /// <summary>
-    /// 카드 전체를 뒤집는 함수 true일 때 앞면 false일 때 뒷면
-    /// </summary>
-    /// <param name="isFront"></param>
-    public void allChangeCard(bool isFront)
-    {
-        for (int i = 0; i < cards.Count; i++)
-        {
-            cards[i].Flip(isFront);
-        }
-    }
-
+    
     #endregion Stage
 
     #region Card Logic
@@ -171,5 +160,18 @@ public class CardManager : MonoBehaviour
         curCard1 = null;
         curCard2 = null;
     }
+
+    /// <summary>
+    /// 카드 전체를 뒤집는 함수 true일 때 앞면 false일 때 뒷면
+    /// </summary>
+    /// <param name="isFront"></param>
+    public void allChangeCard(bool isFront)
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].Flip(isFront);
+        }
+    }
+
     #endregion Card Logic
 }
