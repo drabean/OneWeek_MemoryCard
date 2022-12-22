@@ -44,11 +44,17 @@ public class Card : MonoBehaviour, Object_Interactable
         }
         else
         {
-            this.isFront = false;
             anim.SetTrigger("FlipBack");
 
         }
     }
+
+    public void setIsFrontFalse()
+    {
+        isFront = false;
+    }
+
+
     public void CardChange(int idx)
     {
         CardManager.Inst.cards.Add(this);
