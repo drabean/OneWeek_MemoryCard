@@ -70,6 +70,7 @@ public class CardManager : MonoBehaviour
         suffleCard();
 
         board.setCardsPosition(cards);
+        board.setFire(1);
 
 
         //여기서 카드 다 뒤집고 보여주기
@@ -135,14 +136,17 @@ public class CardManager : MonoBehaviour
     WaitForSeconds waitForCard = new WaitForSeconds(1.0f);
     IEnumerator CO_TwoCardSame()
     {
-        yield return waitForCard;
+        GameObject card1 = curCard1.gameObject;
+        GameObject card2 = curCard2.gameObject;
 
-        Destroy(curCard1.gameObject);
-        Destroy(curCard2.gameObject);
         curCard1 = null;
         curCard2 = null;
 
+        yield return waitForCard;
 
+        Destroy(card1);
+        Destroy(card2);
+        board.setFire((float)(cards.Count-2) / difficulty);
 
         if (cards.Count == 2)
         {
@@ -153,12 +157,16 @@ public class CardManager : MonoBehaviour
 
     IEnumerator CO_TwoCardDiff()
     {
-        yield return waitForCard;
+        Card card1 = curCard1;
+        Card card2 = curCard2;
 
-        curCard1.Flip(false);
-        curCard2.Flip(false);
         curCard1 = null;
         curCard2 = null;
+
+        yield return waitForCard;
+
+        card1.Flip(false);
+        card2.Flip(false);
     }
 
     /// <summary>
