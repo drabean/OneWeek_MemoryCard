@@ -136,25 +136,47 @@ public class CardManager : MonoBehaviour
     WaitForSeconds waitForCard = new WaitForSeconds(1.0f);
     IEnumerator CO_TwoCardSame()
     {
-        GameObject card1 = curCard1.gameObject;
-        GameObject card2 = curCard2.gameObject;
+        Card card1 = curCard1;
+        Card card2 = curCard2;
+
+        cards.Remove(curCard1);
+        cards.Remove(curCard2);
 
         curCard1 = null;
         curCard2 = null;
 
         yield return waitForCard;
 
-        Destroy(card1);
-        Destroy(card2);
-        board.setFire((float)(cards.Count-2) / difficulty);
 
-        if (cards.Count == 2)
+        //여기서 대신 연출
+
+        StartCoroutine(CO_DestroyCard(card1, card2));
+        board.setFire((float)(cards.Count) / difficulty);
+
+        if (cards.Count == 0)
         {
             yield return new WaitForSeconds(1.0f);
             resetStage();
         }
     }
 
+    IEnumerator CO_DestroyCard(Card card1, Card card2)
+    {
+        card1.anim.SetTrigger("GetBig");
+        card1.mover.Move_Time(board.disappearTransform.position, 0.5f);
+        card2.anim.SetTrigger("GetBig");
+        card2.mover.Move_Time(board.disappearTransform.position, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        card1.mover.Move_Time(board.disappearTransform.position + Vector3.up * 1.5f, 1.0f);
+        card2.mover.Move_Time(board.disappearTransform.position + Vector3.up * 1.5f, 1.0f);
+
+        yield return new WaitForSeconds(1.0f);
+        Destroy(card1.gameObject);
+        Destroy(card2.gameObject);
+
+        
+    }
     IEnumerator CO_TwoCardDiff()
     {
         Card card1 = curCard1;

@@ -8,6 +8,8 @@ public class GameBoard : MonoBehaviour
     public GameObject[] Fires;
 
     public GameObject dummyCard;
+
+    public Transform disappearTransform;
     
     public void setCardsPosition(List<Card> cards)
     {

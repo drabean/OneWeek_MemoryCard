@@ -15,20 +15,18 @@ public class Card : MonoBehaviour, Object_Interactable
 
     Sprite curFrontSprite;
     Sprite curBackSprite;
-    Animator anim;
+    public Animator anim;
     SpriteRenderer sp;
 
+    public Object_Move mover;
 
     void Awake()
     {
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
+        mover = GetComponent<Object_Move>();
     }
 
-    void OnDestroy()
-    {
-        CardManager.Inst.cards.Remove(this);
-    }
     public void Interact()
     {
         if (isFront) return;
