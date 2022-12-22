@@ -5,21 +5,33 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    GameManager gameManager;
-    public TextMeshProUGUI timeText;
-    public float time;
+    public bool timerOn;
 
-    private void Awake()
+    public TextMeshProUGUI timeText;
+    float time;
+
+    public void StartTimer()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        timerOn = true;
     }
+
+    public void EndTimer()
+    {
+        timerOn = false;
+
+    }
+    public float getTime()
+    {
+        return time;
+    }
+
     void Update()
     {
-        if (gameManager.timerAvailable) TimerStart();
+        if (timerOn) TimerOn();
         else TimerStop();
     }
 
-    public void TimerStart()
+    public void TimerOn()
     {
         time += Time.deltaTime;
         timeText.text = time.ToString("N2");
@@ -27,7 +39,6 @@ public class Timer : MonoBehaviour
 
     public void TimerStop()
     {
-        time += 0;
         timeText.text = time.ToString("N2");
     }
 }

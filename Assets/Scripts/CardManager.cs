@@ -18,6 +18,8 @@ public class CardManager : MonoBehaviour
     public Card curCard1;
     public Card curCard2;
 
+    int stageCount;
+
     private void Awake()
     {
         Inst = this;
@@ -28,7 +30,8 @@ public class CardManager : MonoBehaviour
         switch (GameDatas.Inst.difficulty)
         {
             case DIFFICULTY.EASY:
-                board = Instantiate(BoardPrefabs[0], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                difficulty = 6;
+                board = Instantiate(BoardPrefabs[1], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
                 break;
             case DIFFICULTY.NORMAL:
                 board = Instantiate(BoardPrefabs[2], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
@@ -43,33 +46,41 @@ public class CardManager : MonoBehaviour
                 difficulty = 12;
                 break;
         }
+        stageCount = 4;
 
         resetStage();
     }
+    #region Stage
 
     public void resetStage()
     {
-        switch (GameDatas.Inst.difficulty)
-        {
-            case DIFFICULTY.EASY:
-                difficulty = 4;
-                break;
-            case DIFFICULTY.NORMAL:
-                difficulty = 8;
-                break;
-            case DIFFICULTY.HARD:
-                difficulty = 10;
-                break;
-            case DIFFICULTY.MASTER:
-                difficulty = 12;
-                break;
-        }
-        generateCard();
-        suffleCard();
-        board.setCardsPosition(cards);
+        stageCount--;
+        if (stageCount < 0) GameManager.Inst.GameEnd();
+        else StartCoroutine(CO_RestartStage());
     }
 
+    public void endStage()
+    {
+        StartCoroutine(CO_RestartStage());
+    }
 
+    IEnumerator CO_RestartStage()
+    {
+        generateCard();
+        suffleCard();
+
+        board.setCardsPosition(cards);
+
+
+        //여기서 카드 다 뒤집고 보여주기
+        yield return new WaitForSeconds(5.0f);
+        //여기서 카드 다시 다 뒤집고 게임 시작하기.
+
+    }
+
+    #endregion Stage
+
+    #region Card Logic
     public void generateCard()
     {
         for (int i = 0; i < difficulty / 2; i++)
@@ -129,6 +140,13 @@ public class CardManager : MonoBehaviour
         curCard1 = null;
         curCard2 = null;
 
+
+
+        if (cards.Count == 2)
+        {
+            yield return new WaitForSeconds(1.0f);
+            resetStage();
+        }
     }
 
     IEnumerator CO_TwoCardDiff()
@@ -140,5 +158,5 @@ public class CardManager : MonoBehaviour
         curCard1 = null;
         curCard2 = null;
     }
-
+    #endregion Card Logic
 }

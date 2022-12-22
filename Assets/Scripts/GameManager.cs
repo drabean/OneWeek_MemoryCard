@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public bool timerAvailable;
+    public static GameManager Inst;
+
     public GameObject readyBtn;
+    public Timer timer;
+
+    public void Awake()
+    {
+        Inst = this;
+        timer.StartTimer();
+    }
+
 
     public void GameStart()
     {
@@ -14,19 +23,15 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-
+        Debug.Log("게임 끝남");
+        timer.TimerStop();
     }
     public void Click_Ready()
     {
         Debug.Log("Game Start");
-        timerAvailable = true;
+        timer.StartTimer();
         readyBtn.SetActive(false);
     }
 
-    [ContextMenu("STOP")]
-    public void stop()
-    {
-        timerAvailable = false;
-    }
     
 }
