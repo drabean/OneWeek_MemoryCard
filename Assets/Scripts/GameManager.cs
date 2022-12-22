@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,17 +14,18 @@ public class GameManager : MonoBehaviour
     {
         Inst = this;
     }
-
-
     public void GameStart()
     {
 
     }
-
     public void GameEnd()
     {
         Debug.Log("게임 끝남");
-        timer.TimerStop();
+        timer.EndTimer();
+        GameDatas.Inst.time = timer.getTime;
+
+        SceneManager.LoadScene("3.EndScenes", LoadSceneMode.Additive);
+
     }
     public void Click_Ready()
     {
