@@ -21,9 +21,7 @@ public class GameBoard : MonoBehaviour
 
     public void setFire(float count)
     {
-        Debug.Log(count * Fires.Length);
         int FireNum = (int) (count * Fires.Length);
-        Debug.Log("FIRENUM:" + FireNum);
         for (int i = 0; i < FireNum; i++)
         {
             Fires[i].SetActive(true);
