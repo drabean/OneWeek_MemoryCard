@@ -145,6 +145,8 @@ public class CardManager : MonoBehaviour
         curCard1 = null;
         curCard2 = null;
 
+        bool isStageEnd = cards.Count == 0;
+
         yield return waitForCard;
 
 
@@ -153,7 +155,7 @@ public class CardManager : MonoBehaviour
         StartCoroutine(CO_DestroyCard(card1, card2));
         board.setFire((float)(cards.Count) / difficulty);
 
-        if (cards.Count == 0)
+        if (isStageEnd)
         {
             yield return new WaitForSeconds(1.0f);
             resetStage();
