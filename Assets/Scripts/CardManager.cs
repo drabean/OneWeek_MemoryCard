@@ -73,9 +73,22 @@ public class CardManager : MonoBehaviour
 
 
         //여기서 카드 다 뒤집고 보여주기
+        allChangeCard(true);
         yield return new WaitForSeconds(5.0f);
         //여기서 카드 다시 다 뒤집고 게임 시작하기.
+        allChangeCard(false);
 
+    }
+    /// <summary>
+    /// 카드 전체를 뒤집는 함수 true일 때 앞면 false일 때 뒷면
+    /// </summary>
+    /// <param name="isFront"></param>
+    public void allChangeCard(bool isFront)
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            cards[i].Flip(isFront);
+        }
     }
 
     #endregion Stage

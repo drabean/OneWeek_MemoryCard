@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         Inst = this;
-        timer.StartTimer();
     }
 
 
