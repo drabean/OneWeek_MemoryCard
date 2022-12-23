@@ -31,6 +31,7 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Inst.PlayBGM("InGameBGM");
         switch (GameDatas.Inst.difficulty)
         {
             case DIFFICULTY.EASY:
