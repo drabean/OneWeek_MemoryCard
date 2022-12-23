@@ -10,6 +10,10 @@ public class WaitingTime : MonoBehaviour
 
     bool isTimerOn;
 
+   [SerializeField]  AudioSource AS;
+    public AudioClip[] clips;
+
+
     private void Awake()
     {
         text_WaitingTime = GetComponent<TextMeshProUGUI>();
@@ -29,6 +33,11 @@ public class WaitingTime : MonoBehaviour
             text_WaitingTime.text = "같은 그림을 찾아주세요! ";
             GameManager.Inst.timer.StartTimer();
             isTimerOn = false;
+            AS.Stop();
+
+            AS.clip = clips[1];
+            AS.Play();
+
         }
     }
 
@@ -38,6 +47,7 @@ public class WaitingTime : MonoBehaviour
         isTimerOn = true;
         waitTime = 5.5f;
 
-        SoundManager.Inst.PlaySFX("WaitingTimeSound");
+        AS.clip = clips[0];
+        AS.Play();
     }
 }
