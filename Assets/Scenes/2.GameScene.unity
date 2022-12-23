@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   readyBtn: {fileID: 1905702303}
   timer: {fileID: 1009517725}
+  waitingTime: {fileID: 1301601439}
 --- !u!4 &1009517724
 Transform:
   m_ObjectHideFlags: 0
@@ -477,6 +478,7 @@ GameObject:
   - component: {fileID: 1301601436}
   - component: {fileID: 1301601438}
   - component: {fileID: 1301601437}
+  - component: {fileID: 1301601439}
   m_Layer: 5
   m_Name: WaitingTime
   m_TagString: Untagged
@@ -524,7 +526,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB9BC\uC744 \uAE30\uC5B5\uD574 \uC8FC\uC138\uC694!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1fa181661eb7fda40979803b28c1457e, type: 2}
   m_sharedMaterial: {fileID: -1631962337758843187, guid: 1fa181661eb7fda40979803b28c1457e, type: 2}
@@ -533,8 +535,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -601,6 +603,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301601435}
   m_CullTransparentMesh: 1
+--- !u!114 &1301601439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301601435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f8bc8b60a28334eb7bdeb91ae35cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1346627447
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,8 +842,8 @@ Canvas:
   m_GameObject: {fileID: 1799181947}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -837,7 +851,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: -194291307
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &1799181951

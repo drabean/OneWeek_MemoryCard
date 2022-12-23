@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 21648
+  controlID: 169
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 21625
+  controlID: 45
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 21605
+  controlID: 144
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 21649
+  controlID: 170
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -320,8 +320,8 @@ MonoBehaviour:
     y: 0
     width: 386
     height: 631
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -725,9 +725,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 60.771294, y: 135.97244, z: -0.15990642}
+    m_Target: {x: 960, y: 932, z: 0}
     speed: 2
-    m_Value: {x: 60.771294, y: 135.97244, z: -0.15990642}
+    m_Value: {x: 959.99994, y: 931.99994, z: -0.000000009531165}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -778,9 +778,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 198.51816
+    m_Target: 172.95444
     speed: 2
-    m_Value: 198.51816
+    m_Value: 172.95444
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -902,7 +902,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: ec8dffff1694ffffe098ffff5899ffff9e99ffffb29cfffff89cffff46a0ffffd6a0ffff2ca4ffff84a4ffffc8a4ffff0ea5ffff1eb0ffffd6c2fffff2c4ffff56c5ffff9ec5ffff06e6ffff64e6ffff40eaffffc4ebffff44f0ffff66f2ffffdaf4ffffe6f6ffff66f9ffff26fbffffba7a0000a67d0000f27f00006a8000007480000086800000b6800000c8800000ae8400002a8500003a850000f090000018910000
+      m_ExpandedIDs: 26fbffff52600000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -967,22 +967,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\KGA_15\Desktop\Memory Card\OneWeek_MemoryCard
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8a620000
-    m_LastClickedID: 25226
-    m_ExpandedIDs: 000000007c62000000ca9a3bffffff7f
+    m_SelectedIDs: 4a630000
+    m_LastClickedID: 25418
+    m_ExpandedIDs: 000000003063000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1010,7 +1010,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000007c62000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000030630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

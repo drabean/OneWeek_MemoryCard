@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject readyBtn;
     public Timer timer;
+    public WaitingTime waitingTime;
 
     public void Awake()
     {
@@ -31,7 +32,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Start");
         CardManager.Inst.resetStage();
-        timer.StartTimer();
+        waitingTime.ReduceTime();
+        //timer.StartTimer();
         readyBtn.SetActive(false);
     }
 
