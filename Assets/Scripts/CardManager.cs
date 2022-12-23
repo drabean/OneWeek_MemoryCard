@@ -183,6 +183,7 @@ public class CardManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         SoundManager.Inst.PlaySFX("CorrectSound");
+
         Destroy(card1.gameObject);
         Destroy(card2.gameObject);
 
