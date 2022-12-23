@@ -20,6 +20,8 @@ public class CardManager : MonoBehaviour
 
     int stageCount;
 
+    public FireHose hose;
+
     private void Awake()
     {
         Inst = this;
@@ -111,6 +113,7 @@ public class CardManager : MonoBehaviour
 
     public void getCard(Card card)
     {
+        hose.shootWater();
         if (curCard1 == null)
         {
             curCard1 = card;
