@@ -76,6 +76,7 @@ public class CardManager : MonoBehaviour
         board.setCardsPosition(cards);
         board.setFire(1);
 
+        GameManager.Inst.waitingTime.startReduceTime();
 
         //여기서 카드 다 뒤집고 보여주기
         allChangeCard(true);

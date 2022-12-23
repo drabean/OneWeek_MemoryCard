@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
     {
         Inst = this;
     }
-    public void GameStart()
-    {
 
+    private void Start()
+    {
+        StartCoroutine(CO_Ready());
     }
     public void GameEnd()
     {
@@ -30,12 +31,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("3.EndScenes", LoadSceneMode.Additive);
 
     }
-    public void Click_Ready()
+    IEnumerator CO_Ready()
     {
-        Debug.Log("Game Start");
+
+        yield return new WaitForSeconds(3);
         CardManager.Inst.resetStage();
-        waitingTime.ReduceTime();
-        //timer.StartTimer();
+        waitingTime.startReduceTime();
+
         readyBtn.SetActive(false);
     }
 
