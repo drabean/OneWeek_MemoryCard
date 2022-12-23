@@ -9,10 +9,7 @@ public class SelectLevel : MonoBehaviour
     private void Start()
     {
         SoundManager.Inst.PlayBGM("StartSceneBGM");
-<<<<<<< HEAD
 
-=======
->>>>>>> a7b251e596777702e494f8ba904e7e183b03a5a5
     }
     public void Click_Easy()
     {
