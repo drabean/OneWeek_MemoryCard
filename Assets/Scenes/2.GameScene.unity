@@ -673,6 +673,7 @@ MonoBehaviour:
   curCard2: {fileID: 0}
   hose: {fileID: 1669689191}
   UI_ready: {fileID: 0}
+  EndBtn: {fileID: 964345590}
 --- !u!4 &1134118654
 Transform:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class CardManager : MonoBehaviour
 
     public GameObject UI_ready;
 
+    public GameObject EndBtn;
     private void Awake()
     {
         Inst = this;
@@ -61,7 +62,11 @@ public class CardManager : MonoBehaviour
     public void resetStage()
     {
         stageCount--;
-        if (stageCount < 0) GameManager.Inst.GameEnd();
+        if (stageCount < 0)
+        {
+            Destroy(EndBtn);
+            GameManager.Inst.GameEnd();
+        }
         else StartCoroutine(CO_RestartStage());
     }
 
