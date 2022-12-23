@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
-        Inst = this;
+        if (Inst == null) Inst = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
@@ -41,5 +42,12 @@ public class GameManager : MonoBehaviour
         readyBtn.SetActive(false);
     }
 
+
+    public void EndApplication()
+    {
+        Debug.Log("ENDGAME");
+        //Application.Quit();
+        SceneManager.LoadScene("1.StartSCene");
+    }
     
 }

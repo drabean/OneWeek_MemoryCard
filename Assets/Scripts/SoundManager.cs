@@ -41,6 +41,11 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         DontDestroyOnLoad(this.gameObject);
     }
     public void PlayBGM(string p_bgmName)
@@ -76,7 +81,7 @@ public class SoundManager : MonoBehaviour
                         return;
                     }
                 }
-                Debug.Log("모든 오디오 플레이어가 재생중입니다.");
+                //Debug.Log("모든 오디오 플레이어가 재생중입니다.");
                 return;
             }
         }

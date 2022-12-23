@@ -219,4 +219,10 @@ public class CardManager : MonoBehaviour
     }
 
     #endregion Card Logic
+
+    public void EndApplication()
+    {
+        GameManager.Inst.EndApplication();
+    }
+
 }

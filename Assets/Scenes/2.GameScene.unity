@@ -535,9 +535,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: EndSceneManager, Assembly-CSharp
-        m_MethodName: ExitRoom
+      - m_Target: {fileID: 1134118653}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: EndApplication
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
