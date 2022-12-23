@@ -6,7 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class SelectLevel : MonoBehaviour
 {
-
+    private void Start()
+    {
+        SoundManager.Inst.PlayBGM("StartSceneBGM");
+    }
     public void Click_Easy()
     {
         Debug.Log("Easy");
