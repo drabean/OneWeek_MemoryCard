@@ -70,5 +70,10 @@ public class Card : MonoBehaviour, Object_Interactable
     {
         sp.sprite = curBackSprite;
     }
+
+    public void changeLayer()
+    {
+        sp.sortingLayerName = "FrontFloor";
+    }
     #endregion
 }
