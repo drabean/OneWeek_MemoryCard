@@ -37,5 +37,7 @@ public class WaitingTime : MonoBehaviour
         GameManager.Inst.timer.EndTimer();
         isTimerOn = true;
         waitTime = 5.5f;
+
+        SoundManager.Inst.PlaySFX("WaitingTimeSound");
     }
 }

@@ -35,6 +35,7 @@ public class Card : MonoBehaviour, Object_Interactable
 
     public void Flip(bool isFront)
     {
+        SoundManager.Inst.PlaySFX("FlipSound");
         if (isFront)
         {
             this.isFront = true;
@@ -43,7 +44,6 @@ public class Card : MonoBehaviour, Object_Interactable
         else
         {
             anim.SetTrigger("FlipBack");
-
         }
     }
 

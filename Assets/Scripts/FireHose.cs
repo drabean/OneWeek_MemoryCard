@@ -18,6 +18,7 @@ public class FireHose : MonoBehaviour
 
     IEnumerator CO_ShootWater()
     {
+        SoundManager.Inst.PlaySFX("WaterEffectSound");
         Sprite_Water.SetActive(true);
         yield return new WaitForSeconds(0.2f);
         Sprite_Water.SetActive(false);
