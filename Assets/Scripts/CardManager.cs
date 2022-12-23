@@ -22,6 +22,8 @@ public class CardManager : MonoBehaviour
 
     public FireHose hose;
 
+    public GameObject UI_ready;
+
     private void Awake()
     {
         Inst = this;
