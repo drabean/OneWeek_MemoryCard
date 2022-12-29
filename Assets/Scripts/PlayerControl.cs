@@ -2,37 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerControl : MonoBehaviour
 {
-    Camera cam;
-
-    float maxDistance = 15f;
-    Vector3 mousePosition;
-    int layerMask;
+    private Camera cam;
+    private float maxDistance = 15f;
+    private Vector3 mousePos;
+    private int layerMask;
 
 
     private void Start()
     {
+        maxDistance = float.MaxValue;
         cam = Camera.main;
         layerMask = 1 << LayerMask.NameToLayer("Interactable");
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.touchCount > 0)
         {
-            mousePosition = Input.mousePosition;
-            mousePosition = cam.ScreenToWorldPoint(mousePosition);
-
-            RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward, maxDistance, layerMask);
-            //Debug.DrawRay(mousePosition, transform.forward * 10, Color.red, 0.3f);
-
-            if (hit)
+            for (int i = 0; i < Input.touchCount; i++)
             {
-                if (hit.transform.TryGetComponent<Object_Interactable>(out Object_Interactable obj))
+                Touch touch = Input.GetTouch(i);
+                if (touch.phase == TouchPhase.Began)
                 {
-                    obj.Interact();
-                }
 
+                    mousePos = cam.ScreenToWorldPoint(touch.position);
+
+                    RaycastHit2D[] hit = new RaycastHit2D[10];
+
+                    hit[i] = Physics2D.Raycast(mousePos, transform.forward, maxDistance, layerMask);
+                    Debug.DrawRay(mousePos, transform.forward * 10, Color.red, 0.3f);
+
+                    if (hit[i].collider != null)
+                    {
+                        Debug.Log(hit[i].transform.name);
+
+                        if (hit[i].transform.TryGetComponent<Object_Interactable>(out Object_Interactable obj))
+                        {
+                            obj.Interact();
+                        }
+                    }
+                }
             }
         }
     }
