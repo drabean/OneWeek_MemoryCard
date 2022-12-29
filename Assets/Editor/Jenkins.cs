@@ -18,10 +18,10 @@ public class Jenkins
         //    Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/Build/");
         //}
 
-        string target_filename = "Build/" + APP_NAME + ".exe";
+        string target_filename = "Build/" + APP_NAME + ".apk";
         SCENES = FindEnabledEditorScenes();
 
-        GenericBuild(SCENES, target_filename, BuildTarget.StandaloneWindows64, BuildOptions.None);
+        GenericBuild(SCENES, target_filename, BuildTarget.Android, BuildOptions.None);
     }
     private static string[] FindEnabledEditorScenes()
     {
@@ -36,6 +36,9 @@ public class Jenkins
 
     static void GenericBuild(string[] scenes, string target_filename, BuildTarget build_target, BuildOptions build_options)
     {
+        if (EditorUserBuildSettings.activeBuildTarget != BuildTarget.Android)
+            EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Android, BuildTarget.Android);
+
         BuildPipeline.BuildPlayer(scenes, Directory.GetCurrentDirectory() + "/Build/" + target_filename, build_target, build_options);
     }
 }
