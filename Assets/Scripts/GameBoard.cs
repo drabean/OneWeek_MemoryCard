@@ -5,32 +5,17 @@ using UnityEngine;
 public class GameBoard : MonoBehaviour
 {
     public GameObject[] CardPositions;
-    public GameObject[] Fires;
-
     public GameObject dummyCard;
-
     public Transform disappearTransform;
     
     public void setCardsPosition(List<Card> cards)
     {
         if (dummyCard != null) Destroy(dummyCard);
-
+        Debug.Log(CardPositions.Length);
         for(int i = 0; i < CardPositions.Length; i++)
         {
             cards[i].transform.position = CardPositions[i].transform.position;
         }
     }
 
-    public void setFire(float count)
-    {
-        int FireNum = (int) (count * Fires.Length);
-        for (int i = 0; i < FireNum; i++)
-        {
-            Fires[i].SetActive(true);
-        }
-        for(int i = FireNum; i < Fires.Length; i++)
-        {
-            Fires[i].SetActive(false);
-        }
-    }
 }

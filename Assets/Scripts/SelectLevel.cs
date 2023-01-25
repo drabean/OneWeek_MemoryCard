@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SelectLevel : MonoBehaviour
 {
+    [SerializeField] GameObject themeWindo;
     private void Start()
     {
         SoundManager.Inst.PlayBGM("StartSceneBGM");
@@ -14,8 +15,10 @@ public class SelectLevel : MonoBehaviour
     public void Click_Easy()
     {
         Debug.Log("Easy");
+        SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.EASY;
-        SceneManager.LoadScene("2.GameScene");
+        themeWindo.SetActive(true);
+        //SceneManager.LoadScene("2.ReadyScene");
     }
 
     public void Click_Normal()
@@ -23,6 +26,7 @@ public class SelectLevel : MonoBehaviour
         Debug.Log("Normal");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.NORMAL;
+        themeWindo.SetActive(true);
         //SceneManager.LoadScene("2.GameScene");
     }
 
@@ -42,4 +46,13 @@ public class SelectLevel : MonoBehaviour
         GameDatas.Inst.difficulty = DIFFICULTY.MASTER;
         //SceneManager.LoadScene("2.GameScene");
     }
+
+    public void Click_Police()
+    {
+        GameDatas.Inst.theme = THEME.POLICE;
+        SceneManager.LoadScene("2.PoliceReadyScene");
+    }
+
+
+
 }

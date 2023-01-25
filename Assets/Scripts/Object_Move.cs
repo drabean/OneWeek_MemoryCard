@@ -5,7 +5,7 @@ using UnityEngine;
 public class Object_Move : MonoBehaviour
 {
     //만약 움직일려는 오브젝트와, 실제로 스크립트가 달려있는 오브젝트가 다르다면 moveTr에 움직일 오브젝트 transform 넣으면 됩니다
-    public Transform moveTr;
+    Transform moveTr;
 
     Coroutine curMoveCO;
 

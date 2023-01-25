@@ -9,11 +9,19 @@ public enum DIFFICULTY
     MASTER
 }
 
+public enum THEME
+{
+    POLICE,
+    DOCTOR,
+    ARCHAEOLOGIST
+}
+
 public class GameDatas : MonoBehaviour
 {
     public static GameDatas Inst;
 
     public DIFFICULTY difficulty;
+    public THEME theme;
     public float time;
 
     private void Awake()
