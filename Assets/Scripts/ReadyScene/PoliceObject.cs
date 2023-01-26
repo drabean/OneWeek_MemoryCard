@@ -6,7 +6,7 @@ public class PoliceObject : MonoBehaviour, Object_Interactable
 {
     Object_Move move;
     [SerializeField] Note note;
-    [SerializeField] float speed = 30;
+    float speed = 10;
     private void Awake()
     {
         move = GetComponent<Object_Move>();

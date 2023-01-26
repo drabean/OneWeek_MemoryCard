@@ -36,6 +36,7 @@ public class SelectLevel : MonoBehaviour
         Debug.Log("Hard");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.HARD;
+        themeWindo.SetActive(true);
         //SceneManager.LoadScene("2.GameScene");
     }
 
@@ -44,15 +45,29 @@ public class SelectLevel : MonoBehaviour
         Debug.Log("Master");
         SoundManager.Inst.PlaySFX("ClickSound");
         GameDatas.Inst.difficulty = DIFFICULTY.MASTER;
+        themeWindo.SetActive(true);
         //SceneManager.LoadScene("2.GameScene");
     }
 
+    public void Click_Exit()
+    {
+        themeWindo.SetActive(false);
+    }
     public void Click_Police()
     {
         GameDatas.Inst.theme = THEME.POLICE;
         SceneManager.LoadScene("2.PoliceReadyScene");
     }
 
+    public void Click_Doctor()
+    {
+        GameDatas.Inst.theme = THEME.DOCTOR;
+        SceneManager.LoadScene("2.DoctorReadyScene");
+    }
 
-
+    public void Click_Archaeologist()
+    {
+        GameDatas.Inst.theme = THEME.ARCHAEOLOGIST;
+        SceneManager.LoadScene("2.ArchaeologistReadyScene");
+    }
 }

@@ -9,7 +9,7 @@ public class ReadyManager : Singleton<ReadyManager>
     // Start is called before the first frame update
     void Start()
     {
-        
+        countObject = 12;
     }
 
     // Update is called once per frame

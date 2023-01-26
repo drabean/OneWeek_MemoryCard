@@ -10,7 +10,7 @@ public class Note : MonoBehaviour
         if (collision.gameObject.tag == "PoliceObject")
         {
             Debug.Log("충돌한것" + collision);
-            DictionaryPool.Inst.Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
             missingNumber++;
             if (missingNumber == ReadyManager.Inst.countObject)
             {

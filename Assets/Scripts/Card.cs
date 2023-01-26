@@ -9,7 +9,8 @@ public class Card : MonoBehaviour, Object_Interactable
     public int Idx;
     public Sprite[] frontsprites;
     public Sprite backSprite;
-
+    public float scaleX;
+    public float scaleY;
     public bool isFront;
 
 
@@ -25,6 +26,8 @@ public class Card : MonoBehaviour, Object_Interactable
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
         mover = GetComponent<Object_Move>();
+        scaleX = transform.localScale.x;
+        scaleY = transform.localScale.y;
     }
 
     public void Interact()

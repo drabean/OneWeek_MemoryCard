@@ -12,7 +12,9 @@ public class CardManager : MonoBehaviour
     public List<Card> cards;
 
     int difficulty;
-
+    float normalScale = 0.7f;
+    float hardScale = 0.6f;
+    float masterScale = 0.5f;
     GameBoard board;
 
     public Card curCard1;
@@ -46,11 +48,11 @@ public class CardManager : MonoBehaviour
                 break;
             case DIFFICULTY.HARD:
                 board = Instantiate(BoardPrefabs[3], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
-                difficulty = 10;
+                difficulty = 18;
                 break;
             case DIFFICULTY.MASTER:
                 board = Instantiate(BoardPrefabs[4], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
-                difficulty = 12;
+                difficulty = 24;
                 break;
         }
         stageCount = 4;
@@ -102,18 +104,23 @@ public class CardManager : MonoBehaviour
             for (int j = 0; j < 2; j++)
             {
                 Card temp = Instantiate(CardPrefab).GetComponent<Card>();
-                switch(GameDatas.Inst.difficulty)
+                switch (GameDatas.Inst.difficulty)
                 {
                     case DIFFICULTY.EASY:
                         break;
                     case DIFFICULTY.NORMAL:
-                    temp.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
-                        Debug.Log("보통모드니까 카드 사이즈 조금 줄인다");
+                        temp.transform.localScale = Vector3.one * normalScale;
                         break;
-
+                    case DIFFICULTY.HARD:
+                        temp.transform.localScale = Vector3.one * hardScale;
+                        break;
+                    case DIFFICULTY.MASTER:
+                        temp.transform.localScale = Vector3.one * masterScale;
+                        break;
                 }
-                    
+
                 temp.CardChange(i);
+
                 temp.name = "card " + (i + 1) + " " + (j + 1);
             }
         }
@@ -127,6 +134,7 @@ public class CardManager : MonoBehaviour
             Card temp = cards[i];
             cards[i] = cards[randNum];
             cards[randNum] = temp;
+            Debug.Log(temp.transform.localScale);
         }
     }
 

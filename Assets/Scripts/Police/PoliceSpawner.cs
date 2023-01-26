@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class PoliceSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject button;
-    [SerializeField] GameObject fingerPrint;
-    [SerializeField] GameObject handCuffs;
-    [SerializeField] GameObject magnifyingGlasses;
-    [SerializeField] GameObject closet;
-    [SerializeField] GameObject earRing;
+    [SerializeField] GameObject[] obj;
+    
     
     void Start()
     {
-        DictionaryInstant(button);
-        DictionaryInstant(fingerPrint);
-        DictionaryInstant(handCuffs);
-        DictionaryInstant(magnifyingGlasses);
-        DictionaryInstant(closet);
-        DictionaryInstant(earRing);
+        for (int i = 0; i < obj.Length; i++)
+        {
+            DictionaryInstant(obj[i]);
+        }
     }
 
     // Update is called once per frame
@@ -33,6 +27,5 @@ public class PoliceSpawner : MonoBehaviour
     void DictionaryInstant(GameObject obj)
     {
         DictionaryPool.Inst.Instantiate(obj, obj.transform.position, Quaternion.identity, DictionaryPool.Inst.transform);
-        ReadyManager.Inst.countObject++;
     }
 }

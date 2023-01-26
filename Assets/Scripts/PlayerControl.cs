@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class PlayerControl : MonoBehaviour
 {
     private Camera cam;
@@ -13,12 +12,13 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
-        maxDistance = float.MaxValue;
-        cam = Camera.main;
-        layerMask = 1 << LayerMask.NameToLayer("Interactable");
+        maxDistance = float.MaxValue; // Raycast의 distance를 최대로 설정
+        cam = Camera.main; // ray를 쏠 카메라를 설정
+        layerMask = 1 << LayerMask.NameToLayer("Interactable"); // Layer의 이름이 Interactable인 오브젝트
     }
     private void Update()
     {
+        // 터치가 10개까지 따로 설정 가능하게 설정
         if (Input.touchCount > 0)
         {
             for (int i = 0; i < Input.touchCount; i++)
