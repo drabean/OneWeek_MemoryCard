@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stethoscope : MonoBehaviour, Object_Interactive
 {
+    int confirmNum;
     Vector3 mOffset = new Vector3(0, 0, 0);
     public void onTouchDown(Vector3 touchPos)
     {
@@ -17,13 +18,5 @@ public class Stethoscope : MonoBehaviour, Object_Interactive
     {
 
     }
-    private void Start()
-    {
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

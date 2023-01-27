@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ReadyManager : Singleton<ReadyManager>
 {
-    public int countObject;
+    public int policeCount;
+    public int doctorCount = 4;
+    public int doctorConfirmNum;
     // Start is called before the first frame update
     void Start()
     {
-        countObject = 12;
+        policeCount = 12;
     }
 
     // Update is called once per frame

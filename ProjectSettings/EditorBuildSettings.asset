@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/2.DoctorReadyScene.unity
     guid: 3f98248ace4c0bb4cbc0d6ddfcc03fad
   - enabled: 1
+    path: Assets/Scenes/2.ArchaeologistReadyScene.unity
+    guid: fcf228ec19e846b4a910ea2c68d702da
+  - enabled: 1
     path: Assets/Scenes/2.PoliceReadyScene.unity
     guid: efdbae1d890ef464195a6960f27fbcc8
   - enabled: 1

@@ -1381,13 +1381,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717a8dfc25d77ca4797130c432628d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardPrefab: {fileID: 2634888610447368112, guid: 8738c25086c0cf74bb184a72eb936a50, type: 3}
+  CardPrefab:
+  - {fileID: 2634888610447368112, guid: 8738c25086c0cf74bb184a72eb936a50, type: 3}
+  - {fileID: 2634888610447368112, guid: 629421506f4e4de4a9f1fd410bb269f2, type: 3}
+  - {fileID: 2634888610447368112, guid: 69697c79a8b5bb54e9ed6cfa0fd8bacd, type: 3}
   BoardPrefabs:
-  - {fileID: 2467748057188112563, guid: 94f12ff5015fb754bb23213b8b147978, type: 3}
   - {fileID: 2467748057188112563, guid: e59e63f1140a7ea478d849a396dd17e4, type: 3}
   - {fileID: 2467748057188112563, guid: 2b2e91b71cfecd540861f83d073cb0ab, type: 3}
   - {fileID: 2467748057188112563, guid: 2d20bc661e72b2f42a70a166af3efeff, type: 3}
   - {fileID: 2467748057188112563, guid: 25e269b1d09a30f48ae0518f25df22e1, type: 3}
+  - {fileID: 2467748057188112563, guid: 0a5afbeb05b203344ba9db7c8e21fb0d, type: 3}
+  - {fileID: 2467748057188112563, guid: 71d9585bbc7c8a54796b5cbce4715e95, type: 3}
+  - {fileID: 2467748057188112563, guid: 915c48cff0cad40409327f6b6811bbba, type: 3}
+  - {fileID: 2467748057188112563, guid: 8f7527ddc6a60524caa54b90ad46db03, type: 3}
+  - {fileID: 2467748057188112563, guid: 3404dc09292e5be49a9f9579643ea341, type: 3}
+  - {fileID: 2467748057188112563, guid: 55bca8e47e3446c47b33ca4f10063fbe, type: 3}
+  - {fileID: 2467748057188112563, guid: ded9b1c137d648c42acb1189a0db7afe, type: 3}
+  - {fileID: 2467748057188112563, guid: 9f6f55b10ac8c87459973966425567e4, type: 3}
+  selectCard: {fileID: 0}
   cards: []
   curCard1: {fileID: 0}
   curCard2: {fileID: 0}

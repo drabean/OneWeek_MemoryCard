@@ -12,7 +12,7 @@ public class Note : MonoBehaviour
             Debug.Log("충돌한것" + collision);
             collision.gameObject.SetActive(false);
             missingNumber++;
-            if (missingNumber == ReadyManager.Inst.countObject)
+            if (missingNumber == ReadyManager.Inst.policeCount)
             {
                 ReadyManager.Inst.GameStart();
             }

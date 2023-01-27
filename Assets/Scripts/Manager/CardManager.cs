@@ -6,9 +6,10 @@ public class CardManager : MonoBehaviour
 {
     public static CardManager Inst;
 
-    public GameObject CardPrefab;
+    public GameObject[] CardPrefab;
     public GameObject[] BoardPrefabs;
-
+    public GameObject selectCard;
+    int boardIdx; // 게임보드 선정을 위한 인덱스
     public List<Card> cards;
 
     int difficulty;
@@ -36,22 +37,38 @@ public class CardManager : MonoBehaviour
     {
         SoundManager.Inst.PlayBGM("InGameBGM");
 
+        switch (GameDatas.Inst.theme)
+        {
+            case THEME.POLICE:
+                selectCard = CardPrefab[0];
+                boardIdx = 0;
+                break;
+            case THEME.DOCTOR:
+                selectCard = CardPrefab[1];
+                boardIdx = 4;
+                break;
+            case THEME.ARCHAEOLOGIST:
+                selectCard = CardPrefab[2];
+                boardIdx = 8;
+                break;
+        }
+
         switch (GameDatas.Inst.difficulty)
         {
             case DIFFICULTY.EASY:
                 difficulty = 6;
-                board = Instantiate(BoardPrefabs[1], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                board = Instantiate(BoardPrefabs[boardIdx], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
                 break;
             case DIFFICULTY.NORMAL:
-                board = Instantiate(BoardPrefabs[2], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                board = Instantiate(BoardPrefabs[boardIdx + 1], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
                 difficulty = 12;
                 break;
             case DIFFICULTY.HARD:
-                board = Instantiate(BoardPrefabs[3], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                board = Instantiate(BoardPrefabs[boardIdx + 2], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
                 difficulty = 18;
                 break;
             case DIFFICULTY.MASTER:
-                board = Instantiate(BoardPrefabs[4], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
+                board = Instantiate(BoardPrefabs[boardIdx + 3], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
                 difficulty = 24;
                 break;
         }
@@ -103,7 +120,7 @@ public class CardManager : MonoBehaviour
         {
             for (int j = 0; j < 2; j++)
             {
-                Card temp = Instantiate(CardPrefab).GetComponent<Card>();
+                Card temp = Instantiate(selectCard).GetComponent<Card>();
                 switch (GameDatas.Inst.difficulty)
                 {
                     case DIFFICULTY.EASY:
