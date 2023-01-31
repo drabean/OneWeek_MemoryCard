@@ -20,7 +20,7 @@ public class CommonUI : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public string startSceneName = "01. StartScene";
+    public string startSceneName = "1.StartSCene";
     public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
 
 

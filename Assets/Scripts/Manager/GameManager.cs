@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
         Destroy(timer.gameObject);
 
-        SceneManager.LoadScene("3.EndScenes", LoadSceneMode.Additive);
+        SceneManager.LoadScene("4.EndScenes", LoadSceneMode.Additive);
 
     }
     IEnumerator CO_Ready()

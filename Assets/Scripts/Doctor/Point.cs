@@ -13,7 +13,8 @@ public class Point : MonoBehaviour
     TextMeshProUGUI waitingTimeText;
     float waitTime;
     Camera camera;
-
+    [SerializeField] GameObject[] childPoint;
+    
     private void Awake()
     {
         sp = GetComponent<SpriteRenderer>();
@@ -28,6 +29,8 @@ public class Point : MonoBehaviour
             waitingTimeText.text = waitTime.ToString("N0");
         }
     }
+
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isLight == false && collision.tag == "Point")
@@ -42,6 +45,7 @@ public class Point : MonoBehaviour
         if (isLight == false && collision.tag == "Point")
         {
             StopCoroutine(LightCo);
+            sp.enabled = false;
             DictionaryPool.Inst.Destroy(waitingTimeText.gameObject);
             isWait = false;
         }
@@ -53,6 +57,7 @@ public class Point : MonoBehaviour
     /// <returns></returns>
     IEnumerator CO_Examination()
     {
+        sp.enabled = true;
         waitingTimeText = DictionaryPool.Inst.Instantiate(textPrefab.gameObject, camera.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Canvas").transform).GetComponent<TextMeshProUGUI>();
         isWait = true;
         waitTime = 3;
@@ -60,12 +65,12 @@ public class Point : MonoBehaviour
         isLight = true;
         DictionaryPool.Inst.Destroy(waitingTimeText.gameObject);
         isWait = false;
-        ReadyManager.Inst.doctorConfirmNum++;
+        
         // 여기에 빛나는 것 적용
         sp.color = Color.yellow;
-        if (ReadyManager.Inst.doctorConfirmNum == ReadyManager.Inst.doctorCount)
+        for (int i = 0; i < childPoint.Length; i++)
         {
-            ReadyManager.Inst.GameStart();
+            childPoint[i].SetActive(true);
         }
     }
 

@@ -72,7 +72,7 @@ public class CardManager : MonoBehaviour
                 difficulty = 24;
                 break;
         }
-        stageCount = 4;
+        stageCount = 1;
 
         //resetStage();
     }
