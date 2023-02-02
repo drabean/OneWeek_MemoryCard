@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    int missingNumber = 0;
+    int policeNumber = 0;
     int archaeologistNumber = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,8 +12,9 @@ public class Note : MonoBehaviour
         {
             Debug.Log("충돌한것" + collision);
             collision.gameObject.SetActive(false);
-            missingNumber++;
-            if (missingNumber == ReadyManager.Inst.policeCount)
+            policeNumber++;
+            Debug.Log(policeNumber);
+            if (policeNumber == ReadyManager.Inst.policeCount)
             {
                 ReadyManager.Inst.GameStart();
             }

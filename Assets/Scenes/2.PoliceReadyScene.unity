@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d8154b7a2da8d45ae559ab622ba71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  policeCount: 0
+  policeCount: 12
   doctorCount: 4
   doctorConfirmNum: 0
   ArchaeologistCount: 5

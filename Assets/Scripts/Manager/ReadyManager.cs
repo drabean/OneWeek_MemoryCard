@@ -8,7 +8,7 @@ public class ReadyManager : Singleton<ReadyManager>
     public int policeCount = 12;
     public int doctorCount = 4;
     public int doctorConfirmNum;
-    public int ArchaeologistCount = 5;
+    public int ArchaeologistCount = 12;
     // Start is called before the first frame update
     void Start()
     {
