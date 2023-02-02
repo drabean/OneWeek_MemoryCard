@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Card : MonoBehaviour, Object_Interactable
+public class Card : MonoBehaviour, Object_Interactive
 {
     // 카드를 나타내는 인덱스
     public int Idx;
@@ -29,13 +29,6 @@ public class Card : MonoBehaviour, Object_Interactable
         scaleX = transform.localScale.x;
         scaleY = transform.localScale.y;
     }
-
-    public void Interact()
-    {
-        if (isFront) return;
-        CardManager.Inst.getCard(this);
-    }
-
     public void Flip(bool isFront)
     {
         SoundManager.Inst.PlaySFX("CardFlipSound");
@@ -65,6 +58,22 @@ public class Card : MonoBehaviour, Object_Interactable
         curBackSprite = backSprite;
     }
 
+
+    public void onTouchDown(Vector3 touchPos)
+    {
+        if (isFront) return;
+        CardManager.Inst.getCard(this);
+    }
+
+    public void onTouchDrag(Vector3 touchPos)
+    {
+    }
+
+    public void onTouchUp(Vector3 touchPos)
+    {
+    }
+
+
     #region 애니메이터 호출 함수
     public void showFront()
     {
@@ -79,5 +88,6 @@ public class Card : MonoBehaviour, Object_Interactable
     {
         sp.sortingLayerName = "FrontFloor";
     }
+
     #endregion
 }

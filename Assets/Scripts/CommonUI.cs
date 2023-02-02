@@ -20,7 +20,7 @@ public class CommonUI : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public string startSceneName = "1.StartSCene";
+    public string startSceneName = "1.StartScene";
     public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
 
 
@@ -43,7 +43,6 @@ public class CommonUI : MonoBehaviour
 
     public void Btn_Restart()
     {
-        DictionaryPool.Inst.DestroyMySelp();
         SceneManager.LoadScene(startSceneName);
         Time.timeScale = 1f;
         Destroy(gameObject);

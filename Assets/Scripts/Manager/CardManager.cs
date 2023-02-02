@@ -21,10 +21,6 @@ public class CardManager : MonoBehaviour
     public Card curCard1;
     public Card curCard2;
 
-    int stageCount;
-
-    public FireHose hose;
-
     public GameObject UI_ready;
 
     public GameObject EndBtn;
@@ -65,31 +61,17 @@ public class CardManager : MonoBehaviour
                 break;
             case DIFFICULTY.HARD:
                 board = Instantiate(BoardPrefabs[boardIdx + 2], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
-                difficulty = 18;
+                difficulty = 16;
                 break;
             case DIFFICULTY.MASTER:
                 board = Instantiate(BoardPrefabs[boardIdx + 3], Vector3.zero, Quaternion.identity).GetComponent<GameBoard>();
-                difficulty = 24;
+                difficulty = 20;
                 break;
         }
-        stageCount = 1;
-
-        //resetStage();
     }
     #region Stage
 
     public void resetStage()
-    {
-        stageCount--;
-        if (stageCount < 0)
-        {
-            Destroy(EndBtn);
-            GameManager.Inst.GameEnd();
-        }
-        else StartCoroutine(CO_RestartStage());
-    }
-
-    public void endStage()
     {
         StartCoroutine(CO_RestartStage());
     }
@@ -151,12 +133,16 @@ public class CardManager : MonoBehaviour
             Card temp = cards[i];
             cards[i] = cards[randNum];
             cards[randNum] = temp;
-            Debug.Log(temp.transform.localScale);
         }
     }
 
+    //다른카드 두개 선택 한 뒤에 약간 delay주기 위한 변수
+    bool canPickCard = true;
+
     public void getCard(Card card)
     {
+        if (!canPickCard) return;
+
         if (curCard1 == null)
         {
             curCard1 = card;
@@ -179,6 +165,8 @@ public class CardManager : MonoBehaviour
         }
     }
 
+
+    bool isGameEnded = false;
     WaitForSeconds waitForCard = new WaitForSeconds(1.0f);
     IEnumerator CO_TwoCardSame()
     {
@@ -190,9 +178,6 @@ public class CardManager : MonoBehaviour
 
         curCard1 = null;
         curCard2 = null;
-
-        bool isStageEnd = cards.Count == 0;
-
         yield return waitForCard;
         SoundManager.Inst.PlaySFX("CorrectSound");
 
@@ -201,10 +186,12 @@ public class CardManager : MonoBehaviour
         StartCoroutine(CO_DestroyCard(card1, card2));
 
 
-        if (isStageEnd)
+
+        if (cards.Count == 0 && !isGameEnded)
         {
+            isGameEnded = true;
             yield return new WaitForSeconds(1.0f);
-            resetStage();
+            GameManager.Inst.GameEnd();
         }
     }
 
@@ -236,12 +223,23 @@ public class CardManager : MonoBehaviour
         curCard1 = null;
         curCard2 = null;
 
+        StartCoroutine(CO_DiffCardDelay());
+
         yield return waitForCard;
         SoundManager.Inst.PlaySFX("WrongSound");
 
 
         card1.Flip(false);
         card2.Flip(false);
+    }
+
+    //waitDelay동안 카드 뒤집어지는거 막음
+    WaitForSeconds waitDelay = new WaitForSeconds(0.5f);
+    IEnumerator CO_DiffCardDelay()
+    {
+        canPickCard = false;
+        yield return  waitDelay;
+        canPickCard = true;
     }
 
     /// <summary>

@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        Debug.Log("게임 끝남");
         timer.EndTimer();
         GameDatas.Inst.time = timer.getTime;
 

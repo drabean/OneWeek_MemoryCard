@@ -45,6 +45,8 @@ public class EndSceneManager : MonoBehaviour
 
     public void ExitRoom()
     {
-        SceneManager.LoadScene("1.StartSCene");
+        Time.timeScale = 1;
+        Destroy(CommonUI.Inst.gameObject);
+        SceneManager.LoadScene("1.StartScene");
     }
 }
