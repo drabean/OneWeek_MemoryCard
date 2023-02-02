@@ -43,6 +43,7 @@ public class CommonUI : MonoBehaviour
 
     public void Btn_Restart()
     {
+        DictionaryPool.Inst.DestroyMySelp();
         SceneManager.LoadScene(startSceneName);
         Time.timeScale = 1f;
         Destroy(gameObject);

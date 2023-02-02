@@ -60,8 +60,8 @@ public class Point : MonoBehaviour
         sp.enabled = true;
         waitingTimeText = DictionaryPool.Inst.Instantiate(textPrefab.gameObject, camera.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Canvas").transform).GetComponent<TextMeshProUGUI>();
         isWait = true;
-        waitTime = 3;
-        yield return new WaitForSeconds(3f);
+        waitTime = 2;
+        yield return new WaitForSeconds(2f);
         isLight = true;
         DictionaryPool.Inst.Destroy(waitingTimeText.gameObject);
         isWait = false;

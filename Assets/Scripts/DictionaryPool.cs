@@ -66,4 +66,9 @@ public class DictionaryPool : Singleton<DictionaryPool>
         list.Add(Prefab);
 
     }
+
+    public void DestroyMySelp()
+    {
+        Destroy(this.gameObject);
+    }
 }

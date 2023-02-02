@@ -6,7 +6,6 @@ public class ColliderManager : MonoBehaviour
 {
     private float maxDistance = 15f;
     GameObject collider = null;
-    [SerializeField] Sprite circleSP;
     public Object_Interactive[] objs = new Object_Interactive[10];
     
     private void Update()
@@ -22,9 +21,6 @@ public class ColliderManager : MonoBehaviour
                         RaycastHit2D hit = Physics2D.Raycast(pos, transform.forward, maxDistance);
 
                         collider = new GameObject("Coll");
-                        SpriteRenderer sp = collider.AddComponent<SpriteRenderer>();
-                        sp.sprite = circleSP;
-                        sp.sortingLayerName = "FrontFloor";
                         CircleCollider2D cc = collider.AddComponent<CircleCollider2D>();
                         collider.transform.position = pos;
                         collider.tag = "Interactable";
