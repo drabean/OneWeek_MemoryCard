@@ -31,7 +31,7 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
-        SoundManager.Inst.PlayBGM("InGameBGM");
+        SoundManager.Inst.PlayBGM("BGM_InGame");
 
         switch (GameDatas.Inst.theme)
         {
@@ -179,7 +179,7 @@ public class CardManager : MonoBehaviour
         curCard1 = null;
         curCard2 = null;
         yield return waitForCard;
-        SoundManager.Inst.PlaySFX("CorrectSound");
+        SoundManager.Inst.PlaySFX("SFX_Correct");
 
         //여기서 대신 연출
 
@@ -226,7 +226,7 @@ public class CardManager : MonoBehaviour
         StartCoroutine(CO_DiffCardDelay());
 
         yield return waitForCard;
-        SoundManager.Inst.PlaySFX("WrongSound");
+        SoundManager.Inst.PlaySFX("SFX_Wrong");
 
 
         card1.Flip(false);

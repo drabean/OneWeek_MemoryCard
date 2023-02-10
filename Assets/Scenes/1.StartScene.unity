@@ -800,29 +800,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 513766521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a20b95551bc5b34e9852443962e2082, type: 3}
+  m_Script: {fileID: 11500000, guid: bb7c26a6ef3b58e48a6feae7c4cad897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfx:
-  - name: CardFlipSound
-    clip: {fileID: 8300000, guid: cfaad5b24b77626468cfcafb2dcb0069, type: 3}
-  - name: ClickSound
-    clip: {fileID: 8300000, guid: 925c6c214cf914748b3583b2f662c49b, type: 3}
-  - name: CorrectSound
-    clip: {fileID: 8300000, guid: f15e28725e6b3f64a984b3cb3058cac3, type: 3}
-  - name: FireBurningSound
-    clip: {fileID: 8300000, guid: a6079ce9f8a1c98408a85029ef1535d1, type: 3}
-  - name: WaitingTimeSound
-    clip: {fileID: 8300000, guid: 4ccbbc9e1960ad04c9c109a65ad781d1, type: 3}
-  - name: WaterEffectSound
-    clip: {fileID: 8300000, guid: 2ad34ab0c331b054db3058f12da1f930, type: 3}
-  - name: WrongSound
-    clip: {fileID: 8300000, guid: ca0091370608021468bed7fdc5b27fad, type: 3}
   bgm:
-  - name: StartSceneBGM
-    clip: {fileID: 8300000, guid: b4c3b7a3f9b4fb84fab236dd96650201, type: 3}
-  - name: InGameBGM
-    clip: {fileID: 8300000, guid: 92bf961c94fd0404a82e5125c7129d90, type: 3}
+  - {fileID: 8300000, guid: 5add0826fd405eb4dbbf71a802319bad, type: 3}
+  - {fileID: 8300000, guid: b4c3b7a3f9b4fb84fab236dd96650201, type: 3}
+  - {fileID: 8300000, guid: 92bf961c94fd0404a82e5125c7129d90, type: 3}
+  sfx:
+  - {fileID: 8300000, guid: cfaad5b24b77626468cfcafb2dcb0069, type: 3}
+  - {fileID: 8300000, guid: 925c6c214cf914748b3583b2f662c49b, type: 3}
+  - {fileID: 8300000, guid: f15e28725e6b3f64a984b3cb3058cac3, type: 3}
+  - {fileID: 8300000, guid: 94fe583e8185a4c47a2ebeea1d4b3137, type: 3}
+  - {fileID: 8300000, guid: 4ccbbc9e1960ad04c9c109a65ad781d1, type: 3}
+  - {fileID: 8300000, guid: ca0091370608021468bed7fdc5b27fad, type: 3}
   bgmPlayer: {fileID: 1944673739}
   sfxPlayer:
   - {fileID: 2122178481}
@@ -830,6 +821,8 @@ MonoBehaviour:
   - {fileID: 246068066}
   - {fileID: 2503682}
   - {fileID: 838006383}
+  isBGMOn: 1
+  isSFXOn: 1
 --- !u!4 &513766523
 Transform:
   m_ObjectHideFlags: 0
@@ -2597,7 +2590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d314660b53282c42ae8a805f6de5674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  difficulty: 0
+  difficulty: 1
   theme: 0
   time: 0
 --- !u!4 &1807467178

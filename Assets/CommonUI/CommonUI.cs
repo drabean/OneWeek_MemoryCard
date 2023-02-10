@@ -6,35 +6,37 @@ using UnityEngine.SceneManagement;
 
 public class CommonUI : MonoBehaviour
 {
+    public string startSceneName = "";
+    public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
+
+
+    public GameObject UIPanel;
+
+    bool SFXOn = true;
+    bool BGMOn = true;
+
+    [SerializeField] Sprite[] TogleImages;
+    [SerializeField] Image Image_BGM;
+    [SerializeField] Image Image_SFX;
+
+
     public static CommonUI Inst;
 
     private void Awake()
     {
-        if (Inst == null)
+        if(Inst == null)
         {
             Inst = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
+            //이미 Inst가 존재하면, 생성하는 대신 Inst를 활성화시키는 방식.
+            Inst.gameObject.SetActive(true);
             Destroy(gameObject);
         }
+
     }
-    public string startSceneName = "1.StartScene";
-    public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
-
-
-    public GameObject UIPanel;
-    public static bool isSFXOn => isSFXOn;
-    public static bool isBGMOn => isBGMOn;
-
-
-    bool SFXOn;
-    bool BGMOn;
-
-    [SerializeField] Sprite[] TogleImages;
-    [SerializeField] Image Image_BGM;
-    [SerializeField] Image Image_SFX;
     public void Btn_Setting()
     {
         UIPanel.SetActive(true);
@@ -43,9 +45,12 @@ public class CommonUI : MonoBehaviour
 
     public void Btn_Restart()
     {
-        SceneManager.LoadScene(startSceneName);
         Time.timeScale = 1f;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        UIPanel.SetActive(false);
+        SoundManager.Inst.StopBGM();
+        SceneManager.LoadScene(startSceneName);
+
     }
 
     public void Btn_Exit()
@@ -102,19 +107,21 @@ public class CommonUI : MonoBehaviour
     }
     public void Btn_Help()
     {
-
+        Debug.Log("미?구현");
     }
     public void Btn_BGM()
     {
         if (BGMOn)
         {
+            SoundManager.Inst.setBGMVolume(0); 
             BGMOn = false;
-            Image_BGM.sprite = TogleImages[0];
+            Image_BGM.sprite = TogleImages[1];
         }
         else
         {
+            SoundManager.Inst.setBGMVolume(1);
             BGMOn = true;
-            Image_BGM.sprite = TogleImages[1];
+            Image_BGM.sprite = TogleImages[0];
         }
     }
 
@@ -122,13 +129,15 @@ public class CommonUI : MonoBehaviour
     {
         if (SFXOn)
         {
+            SoundManager.Inst.setSFXVolume(0);
             SFXOn = false;
-            Image_SFX.sprite = TogleImages[0];
+            Image_SFX.sprite = TogleImages[1];
         }
         else
         {
+            SoundManager.Inst.setSFXVolume(1);
             SFXOn = true;
-            Image_SFX.sprite = TogleImages[1];
+            Image_SFX.sprite = TogleImages[0];
         }
     }
 
@@ -137,5 +146,4 @@ public class CommonUI : MonoBehaviour
         UIPanel.SetActive(false);
         Time.timeScale = 1f;
     }
-
 }
