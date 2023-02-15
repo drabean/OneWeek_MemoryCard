@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CardManager : MonoBehaviour
 {
@@ -98,6 +99,8 @@ public class CardManager : MonoBehaviour
     #region Card Logic
     public void generateCard()
     {
+        board.DestroyDummy();
+
         for (int i = 0; i < difficulty / 2; i++)
         {
             for (int j = 0; j < 2; j++)
@@ -191,6 +194,19 @@ public class CardManager : MonoBehaviour
         {
             isGameEnded = true;
             yield return new WaitForSeconds(1.0f);
+            GameDatas.Inst.scene = SCENE.CLEAR;
+            switch (GameDatas.Inst.theme)
+            {
+                case THEME.POLICE:
+                    SceneManager.LoadScene("4.PoliceClearScene");
+                    break;
+                case THEME.DOCTOR:
+                    SceneManager.LoadScene("4.DoctorClearScene");
+                    break;
+                case THEME.ARCHAEOLOGIST:
+                    SceneManager.LoadScene("4.ArchaeologistClearScene");
+                    break;
+            }
             GameManager.Inst.GameEnd();
         }
     }

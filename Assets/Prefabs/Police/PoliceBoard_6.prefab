@@ -104,7 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fed45202f73bc0c42bd195ac617ccaa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -188,7 +188,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fed45202f73bc0c42bd195ac617ccaa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,8 +253,8 @@ MonoBehaviour:
   - {fileID: 2224743414919132556}
   - {fileID: 5399897728608443864}
   - {fileID: 7076991680867071697}
-  dummyCard: {fileID: 7823556937964906329}
   disappearTransform: {fileID: 3183387902259456021}
+  dummyCards: {fileID: 0}
 --- !u!1 &2467748058017862335
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fed45202f73bc0c42bd195ac617ccaa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -496,7 +496,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fed45202f73bc0c42bd195ac617ccaa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -580,7 +580,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fed45202f73bc0c42bd195ac617ccaa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -664,7 +664,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fed45202f73bc0c42bd195ac617ccaa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

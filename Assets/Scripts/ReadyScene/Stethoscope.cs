@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Stethoscope : MonoBehaviour, Object_Interactive
 {
-    Vector3 mOffset = new Vector3(0, 0, 0);
+    Vector3 mOffset = new Vector3(-1, 1, 0);
     public void onTouchDown(Vector3 touchPos)
     {
 

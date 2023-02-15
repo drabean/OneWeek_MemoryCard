@@ -5,12 +5,10 @@ using UnityEngine;
 public class GameBoard : MonoBehaviour
 {
     public GameObject[] CardPositions;
-    public GameObject dummyCard;
     public Transform disappearTransform;
-    
+    public GameObject dummyCards;
     public void setCardsPosition(List<Card> cards)
     {
-        if (dummyCard != null) Destroy(dummyCard);
         Debug.Log(CardPositions.Length);
         for(int i = 0; i < CardPositions.Length; i++)
         {
@@ -18,4 +16,8 @@ public class GameBoard : MonoBehaviour
         }
     }
 
+    public void DestroyDummy()
+    {
+        dummyCards.SetActive(false);
+    }
 }

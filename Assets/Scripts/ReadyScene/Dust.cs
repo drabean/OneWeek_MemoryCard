@@ -24,12 +24,12 @@ public class Dust : MonoBehaviour
             {
                 case 1:
                     {
-                        sp.color = new Color(curColor.r, curColor.r, curColor.r, 0.9f);
+                        sp.color = new Color(curColor.r, curColor.g, curColor.b, 0.9f);
                     }
                     break;
                 case 2:
                     {
-                        sp.color = new Color(curColor.r, curColor.r, curColor.r, 0.5f);
+                        sp.color = new Color(curColor.r, curColor.g, curColor.b, 0.5f);
                     }
                     break;
                 case 3:

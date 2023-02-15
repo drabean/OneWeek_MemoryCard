@@ -25,6 +25,7 @@ public class ReadySceneManager : Singleton<ReadySceneManager>
     IEnumerator CO_GameOver()
     {
         yield return new WaitForSeconds(2.0f);
+        GameDatas.Inst.scene = SCENE.GAME;
         SceneManager.LoadScene("3.GameScene");
     }
 

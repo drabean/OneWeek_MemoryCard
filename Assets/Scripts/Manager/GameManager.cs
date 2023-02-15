@@ -29,9 +29,6 @@ public class GameManager : MonoBehaviour
         GameDatas.Inst.time = timer.getTime;
 
         Destroy(timer.gameObject);
-
-        SceneManager.LoadScene("4.EndScenes", LoadSceneMode.Additive);
-
     }
     IEnumerator CO_Ready()
     {

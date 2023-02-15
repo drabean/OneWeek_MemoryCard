@@ -16,12 +16,20 @@ public enum THEME
     ARCHAEOLOGIST
 }
 
+public enum SCENE
+{
+    READY,
+    GAME,
+    CLEAR,
+    END
+}
 public class GameDatas : MonoBehaviour
 {
     public static GameDatas Inst;
 
     public DIFFICULTY difficulty;
     public THEME theme;
+    public SCENE scene;
     public float time;
 
     private void Awake()

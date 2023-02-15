@@ -56,6 +56,7 @@ public class StartSceneManager : MonoBehaviour
     public void Click_Police()
     {
         GameDatas.Inst.theme = THEME.POLICE;
+        GameDatas.Inst.scene = SCENE.READY;
         SoundManager.Inst.PlayBGM("BGM_Police");
         SceneManager.LoadScene("2.PoliceReadyScene");
     }
@@ -63,6 +64,7 @@ public class StartSceneManager : MonoBehaviour
     public void Click_Doctor()
     {
         GameDatas.Inst.theme = THEME.DOCTOR;
+        GameDatas.Inst.scene = SCENE.READY;
         SoundManager.Inst.PlayBGM("BGM_Police");
         SceneManager.LoadScene("2.DoctorReadyScene");
     }
@@ -70,6 +72,7 @@ public class StartSceneManager : MonoBehaviour
     public void Click_Archaeologist()
     {
         GameDatas.Inst.theme = THEME.ARCHAEOLOGIST;
+        GameDatas.Inst.scene = SCENE.READY;
         SoundManager.Inst.PlayBGM("BGM_Police");
         SceneManager.LoadScene("2.ArchaeologistReadyScene");
     }

@@ -13,8 +13,11 @@ public class Point : MonoBehaviour
     TextMeshProUGUI waitingTimeText;
     float waitTime;
     Camera cam;
-    [SerializeField] GameObject[] childPoint;
-    
+    [SerializeField] GameObject[] doctorObject;
+    [SerializeField] GameObject stethoscope;
+    [SerializeField] GameObject childBody;
+
+
     private void Awake()
     {
         sp = GetComponent<SpriteRenderer>();
@@ -33,19 +36,17 @@ public class Point : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isLight == false && collision.tag == "Point")
+        if (isLight == false && collision.CompareTag("Point"))
         {
             LightCo = StartCoroutine(nameof(CO_Examination));
-            
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (isLight == false && collision.tag == "Point")
+        if (isLight == false && collision.CompareTag("Point"))
         {
             StopCoroutine(LightCo);
-            sp.enabled = false;
             Destroy(waitingTimeText.gameObject);
             isWait = false;
         }
@@ -57,20 +58,22 @@ public class Point : MonoBehaviour
     /// <returns></returns>
     IEnumerator CO_Examination()
     {
-        sp.enabled = true;
         waitingTimeText = Instantiate(textPrefab.gameObject, cam.WorldToScreenPoint(transform.position), Quaternion.identity, GameObject.Find("Canvas").transform).GetComponent<TextMeshProUGUI>();
         isWait = true;
         waitTime = 2;
         yield return new WaitForSeconds(2f);
         isLight = true;
         Destroy(waitingTimeText.gameObject);
+        stethoscope.SetActive(false);
+        childBody.SetActive(false);
         isWait = false;
         
         // 여기에 빛나는 것 적용
         sp.color = Color.yellow;
-        for (int i = 0; i < childPoint.Length; i++)
+
+        for (int i = 0; i < doctorObject.Length; i++)
         {
-            childPoint[i].SetActive(true);
+            doctorObject[i].SetActive(true);
         }
     }
 

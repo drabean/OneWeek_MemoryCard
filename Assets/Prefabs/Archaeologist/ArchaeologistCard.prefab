@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -670736667
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 25cb6f31de3880b4db80cefec2396a30, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,19 +102,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Idx: 0
   frontsprites:
-  - {fileID: 21300000, guid: 93171e835d8236a4091bb66eac3548e5, type: 3}
-  - {fileID: 21300000, guid: 7b317c2bb479caf4bbd0416001500d33, type: 3}
-  - {fileID: 21300000, guid: 499d5f471491b3e4fbe19545a50cbfda, type: 3}
-  - {fileID: 21300000, guid: 3828c1e975ae8954bbc3ed507c016a44, type: 3}
-  - {fileID: 21300000, guid: fd46470df12480e4591c9d0b9e2cd452, type: 3}
-  - {fileID: 21300000, guid: 2fc7c9f258e651a4b9e07749eee34632, type: 3}
-  - {fileID: 21300000, guid: ccf4bfc751af0404da165788218228b3, type: 3}
-  - {fileID: 21300000, guid: 2d55c6fdd2d00354384062aa78b2bc49, type: 3}
-  - {fileID: 21300000, guid: 0de8ed161722ccc4eb27f0e316629270, type: 3}
-  - {fileID: 21300000, guid: d6287cea500e67648bf9f66c8014fe5c, type: 3}
-  - {fileID: 21300000, guid: 579d1866cf992ff4fad7ad501ed8c58f, type: 3}
-  - {fileID: 21300000, guid: b0ef076b41c9d1b409ef85be29e11166, type: 3}
-  backSprite: {fileID: 21300000, guid: eb134a5f06b80e245853794b5a74c436, type: 3}
+  - {fileID: 21300000, guid: 4bcca510a57f5644b86896f85e54bba6, type: 3}
+  - {fileID: 21300000, guid: 836f719d2d8da98429e59df161c885e6, type: 3}
+  - {fileID: 21300000, guid: c77b497f74506bf4694a7d051ff8e37a, type: 3}
+  - {fileID: 21300000, guid: 4da19d687ec076146a4b7a94bb8c8474, type: 3}
+  - {fileID: 21300000, guid: 7f6effd583a12ba44b04b5681b53977c, type: 3}
+  - {fileID: 21300000, guid: a80edb3fbc7a1fe48bbeae5222f16e9f, type: 3}
+  - {fileID: 21300000, guid: ef2b3d793adf1e744a4a7634a3f979f0, type: 3}
+  - {fileID: 21300000, guid: e15c523232cc3d547904c4af2ba8de17, type: 3}
+  - {fileID: 21300000, guid: 63d36ee3223e3b948be9460ebe8dedc8, type: 3}
+  - {fileID: 21300000, guid: 6430ba776149d1c4d8a15761dcf4cbac, type: 3}
+  backSprite: {fileID: 21300000, guid: 25cb6f31de3880b4db80cefec2396a30, type: 3}
   scaleX: 0
   scaleY: 0
   isFront: 0
