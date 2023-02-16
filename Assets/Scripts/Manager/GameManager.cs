@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("ENDGAME");
         //Application.Quit();
-        SceneManager.LoadScene("1.StartSCene");
+        SceneManager.LoadScene("0.StartSCene");
     }
     
 }

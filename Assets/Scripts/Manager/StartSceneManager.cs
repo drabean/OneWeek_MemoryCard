@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class StartSceneManager : MonoBehaviour
 {
-    [SerializeField] GameObject Panel_SelectTheme;
     private void Start()
     {
         SoundManager.Inst.PlayBGM("BGM_StartScene");
@@ -17,7 +16,7 @@ public class StartSceneManager : MonoBehaviour
         Debug.Log("Easy");
         SoundManager.Inst.PlaySFX("SFX_Click");
         GameDatas.Inst.difficulty = DIFFICULTY.EASY;
-        Panel_SelectTheme.SetActive(true);
+        SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.ReadyScene");
     }
 
@@ -26,7 +25,7 @@ public class StartSceneManager : MonoBehaviour
         Debug.Log("Normal");
         SoundManager.Inst.PlaySFX("SFX_Click");
         GameDatas.Inst.difficulty = DIFFICULTY.NORMAL;
-        Panel_SelectTheme.SetActive(true);
+        SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.GameScene");
     }
 
@@ -36,7 +35,7 @@ public class StartSceneManager : MonoBehaviour
         Debug.Log("Hard");
         SoundManager.Inst.PlaySFX("SFX_Click");
         GameDatas.Inst.difficulty = DIFFICULTY.HARD;
-        Panel_SelectTheme.SetActive(true);
+        SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.GameScene");
     }
 
@@ -45,13 +44,13 @@ public class StartSceneManager : MonoBehaviour
         Debug.Log("Master");
         SoundManager.Inst.PlaySFX("SFX_Click");
         GameDatas.Inst.difficulty = DIFFICULTY.MASTER;
-        Panel_SelectTheme.SetActive(true);
+        SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.GameScene");
     }
 
     public void Click_Exit()
     {
-        Panel_SelectTheme.SetActive(false);
+        // 끝내는 버튼 눌렀을 시 나오게 
     }
     public void Click_Police()
     {

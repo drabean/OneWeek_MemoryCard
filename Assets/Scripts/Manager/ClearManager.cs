@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class ClearManager : Singleton<ClearManager>
 {
     public Transform[] location;
-    public GameObject[] relics; // 유물 오브젝트
+    public GameObject[] cardObject; // 카드 내 오브젝트
     public Transform finalPos;  // 유물이 마지막으로 있어야하는 위치
-    public GameObject board; // 유물을 담고있는 보드
+    public GameObject board; // 오브젝트들을 담고있는 보드
+    public GameObject parentPos; // 부모객체로 만들 위치
     List<int> idxList = new List<int>(); // 유물 3개를 선정하기 위한 인덱스를 가지고 있는 리스트
     List<GameObject> objectList = new List<GameObject>(); // 
     bool isClick = false;
@@ -19,7 +20,8 @@ public class ClearManager : Singleton<ClearManager>
         // 
         for (int i = 0; i < 3; i++)
         {
-            GameObject temp = Instantiate(relics[idxList[i]], location[i].position, Quaternion.identity, board.transform);
+            GameObject temp = Instantiate(cardObject[idxList[i]], location[i].position, Quaternion.identity, board.transform);
+            temp.SetActive(true);
             temp.transform.localScale *= 2.25f;
             objectList.Add(temp);
         }
@@ -36,12 +38,12 @@ public class ClearManager : Singleton<ClearManager>
     /// </summary>
     void SelectRandomNum()
     {
-        int curRandom = Random.Range(0,relics.Length);
+        int curRandom = Random.Range(0,cardObject.Length);
         for (int i = 0; i < 3; i++)
         {
             if (idxList.Contains(curRandom))
             {
-                curRandom = Random.Range(0, relics.Length);
+                curRandom = Random.Range(0, cardObject.Length);
                 i--;
             }
             else
@@ -51,7 +53,10 @@ public class ClearManager : Singleton<ClearManager>
             }
         }
     }
-
+    /// <summary>
+    /// 보드가 아래로 내려가고 게임 종료씬으로 넘어가는 함수
+    /// </summary>
+    /// <param name="obj"></param>
     public void ClickObject(GameObject obj)
     {
         if (!isClick)

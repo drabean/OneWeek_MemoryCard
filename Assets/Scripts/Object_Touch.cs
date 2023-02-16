@@ -22,8 +22,17 @@ public class Object_Touch : MonoBehaviour, Object_Interactive
                 move.Move_Speed(ReadySceneManager.Inst.NotePos.position, speed);
                 break;
             case SCENE.CLEAR:
-                gameObject.transform.localScale = gameObject.transform.localScale * 2;
-                move.Move_Speed(ClearManager.Inst.finalPos.position, speed);
+                switch (GameDatas.Inst.theme)
+                {
+                    case THEME.ARCHAEOLOGIST:
+                        gameObject.transform.localScale = gameObject.transform.localScale * 2;
+                        move.Move_Speed(ClearManager.Inst.finalPos.position, speed);
+                        break;
+                    case THEME.DOCTOR:
+                        gameObject.transform.SetParent(ClearManager.Inst.parentPos.transform);
+                        gameObject.transform.position = ClearManager.Inst.finalPos.position;
+                        break;
+                }
                 ClearManager.Inst.ClickObject(gameObject);
                 break;
         }

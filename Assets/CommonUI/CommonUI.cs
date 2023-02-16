@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CommonUI : MonoBehaviour
 {
-    public string startSceneName = "";
+    public string startSceneName = "0.StartScene";
     public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
 
 

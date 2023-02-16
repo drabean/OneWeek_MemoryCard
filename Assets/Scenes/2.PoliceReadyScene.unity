@@ -1603,7 +1603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4010164d7dc0040a75d39814c4d6ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSceneName: 1.StartSCene
+  startSceneName: 0.StartScene
   MainPackageName: com.DefaultCompany.MinigameTownTest
   UIPanel: {fileID: 1392826534}
   TogleImages:

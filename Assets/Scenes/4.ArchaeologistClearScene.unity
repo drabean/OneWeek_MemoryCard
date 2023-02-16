@@ -424,7 +424,7 @@ MonoBehaviour:
   - {fileID: 913150658}
   - {fileID: 1956177169}
   - {fileID: 1345780961}
-  relics:
+  cardObject:
   - {fileID: 904339566876525060, guid: d4f64174361673b4e864537e96f81aac, type: 3}
   - {fileID: 904339566876525060, guid: eb36165f0697e594a8c8202bf9dc43ce, type: 3}
   - {fileID: 904339566876525060, guid: 377afb694e735c841b38c2c17497f53a, type: 3}
