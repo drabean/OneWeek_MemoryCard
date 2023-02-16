@@ -436,7 +436,7 @@ MonoBehaviour:
   - {fileID: 811831421319347443}
   - {fileID: 6588240193250260416}
   disappearTransform: {fileID: 3183387902259456021}
-  dummyCards: {fileID: 0}
+  dummyCards: {fileID: 672825159652873796}
 --- !u!1 &2467748058017862335
 GameObject:
   m_ObjectHideFlags: 0
