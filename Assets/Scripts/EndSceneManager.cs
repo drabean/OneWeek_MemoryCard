@@ -47,6 +47,6 @@ public class EndSceneManager : MonoBehaviour
     {
         Time.timeScale = 1;
         Destroy(CommonUI.Inst.gameObject);
-        SceneManager.LoadScene("1.StartScene");
+        SceneManager.LoadScene("0.StartScene");
     }
 }
