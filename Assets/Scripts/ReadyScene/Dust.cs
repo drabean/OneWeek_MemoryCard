@@ -24,6 +24,7 @@ public class Dust : MonoBehaviour
             {
                 case 1:
                     {
+
                         sp.color = new Color(curColor.r, curColor.g, curColor.b, 0.9f);
                     }
                     break;

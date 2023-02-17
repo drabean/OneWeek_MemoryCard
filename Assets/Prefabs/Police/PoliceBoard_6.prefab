@@ -254,7 +254,7 @@ MonoBehaviour:
   - {fileID: 5399897728608443864}
   - {fileID: 7076991680867071697}
   disappearTransform: {fileID: 3183387902259456021}
-  dummyCards: {fileID: 0}
+  dummyCards: {fileID: 7823556937964906329}
 --- !u!1 &2467748058017862335
 GameObject:
   m_ObjectHideFlags: 0

@@ -806,14 +806,24 @@ MonoBehaviour:
   bgm:
   - {fileID: 8300000, guid: 5add0826fd405eb4dbbf71a802319bad, type: 3}
   - {fileID: 8300000, guid: b4c3b7a3f9b4fb84fab236dd96650201, type: 3}
-  - {fileID: 8300000, guid: 92bf961c94fd0404a82e5125c7129d90, type: 3}
+  - {fileID: 8300000, guid: 66e12fd0b72fae44a9f6697c917a7002, type: 3}
+  - {fileID: 8300000, guid: 34fb55b2f3ee9d24b93b4e39eaecbc8d, type: 3}
+  - {fileID: 8300000, guid: 95af1ac6717994b4bac1d92df3763c05, type: 3}
   sfx:
   - {fileID: 8300000, guid: cfaad5b24b77626468cfcafb2dcb0069, type: 3}
-  - {fileID: 8300000, guid: 925c6c214cf914748b3583b2f662c49b, type: 3}
+  - {fileID: 8300000, guid: e3879532a316ae04ca0b30ffb1ef8146, type: 3}
   - {fileID: 8300000, guid: f15e28725e6b3f64a984b3cb3058cac3, type: 3}
   - {fileID: 8300000, guid: 94fe583e8185a4c47a2ebeea1d4b3137, type: 3}
   - {fileID: 8300000, guid: 4ccbbc9e1960ad04c9c109a65ad781d1, type: 3}
   - {fileID: 8300000, guid: ca0091370608021468bed7fdc5b27fad, type: 3}
+  - {fileID: 8300000, guid: d7e82f397ce03bb448e7fe90b6589425, type: 3}
+  - {fileID: 8300000, guid: 6e798826d35795444b33241d8ee5d777, type: 3}
+  - {fileID: 8300000, guid: a780ec6f6006eb4418f6fac2be56e8db, type: 3}
+  - {fileID: 8300000, guid: 4ccb615029f294b449c275755112d867, type: 3}
+  - {fileID: 8300000, guid: 609bf637a7021974c96312c0983f0000, type: 3}
+  - {fileID: 8300000, guid: a32978f38695c434888382df82422c8f, type: 3}
+  - {fileID: 8300000, guid: a4e5998617355504a93c25536b20ab9d, type: 3}
+  - {fileID: 8300000, guid: 6d1825c868db1e84ab434a19df6c37ee, type: 3}
   bgmPlayer: {fileID: 1944673739}
   sfxPlayer:
   - {fileID: 2122178481}
@@ -821,8 +831,6 @@ MonoBehaviour:
   - {fileID: 246068066}
   - {fileID: 2503682}
   - {fileID: 838006383}
-  isBGMOn: 1
-  isSFXOn: 1
 --- !u!4 &513766523
 Transform:
   m_ObjectHideFlags: 0
@@ -2061,7 +2069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe3e4b0716cc634b90e1518eb321f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel_SelectTheme: {fileID: 910190037}
 --- !u!4 &1382701666
 Transform:
   m_ObjectHideFlags: 0
@@ -2592,6 +2599,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 1
   theme: 0
+  scene: 0
   time: 0
 --- !u!4 &1807467178
 Transform:
