@@ -39,6 +39,7 @@ public class Point : MonoBehaviour
         if (isLight == false && collision.CompareTag("Point"))
         {
             LightCo = StartCoroutine(nameof(CO_Examination));
+            SoundManager.Inst.PlaySFX("SFX_Stethoscope");
         }
     }
 

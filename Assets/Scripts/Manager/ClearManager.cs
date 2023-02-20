@@ -18,19 +18,32 @@ public class ClearManager : Singleton<ClearManager>
     bool isClick = false;
     void Start()
     {
-        if (GameDatas.Inst.theme == THEME.POLICE) return;
-        // 고고학자 테마 일 때 클리어 씬 내용
-        SelectRandomNum();
-        // 
-        for (int i = 0; i < 3; i++)
+        if (GameDatas.Inst.theme == THEME.POLICE)
         {
-            GameObject temp = Instantiate(cardObject[idxList[i]], location[i].position, Quaternion.identity, board.transform);
-            temp.SetActive(true);
-            temp.transform.localScale *= 2.25f;
-            objectList.Add(temp);
+            StartCoroutine(CO_Arrest());
+        }
+        else
+        {
+            // 고고학자 테마 일 때 클리어 씬 내용
+            SelectRandomNum();
+            // 
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject temp = Instantiate(cardObject[idxList[i]], location[i].position, Quaternion.identity, board.transform);
+                temp.SetActive(true);
+                temp.transform.localScale *= 2.25f;
+                objectList.Add(temp);
+            }
         }
     }
 
+    IEnumerator CO_Arrest()
+    {
+        yield return new WaitForSeconds(3f);
+        Instantiate(stamp, GameObject.Find("Canvas").transform);
+        StartCoroutine(CO_GameOver());
+
+    }
     /// <summary>
     /// 중복되지 않는 랜덤 숫자 3개 가져오는 함수
     /// </summary>

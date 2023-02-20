@@ -34,6 +34,7 @@ public class Object_Touch : MonoBehaviour, Object_Interactive
                         break;
                 }
                 ClearManager.Inst.ClickObject(gameObject);
+                SoundManager.Inst.PlaySFX("SFX_Clear");
                 break;
         }
     }

@@ -24,17 +24,19 @@ public class Dust : MonoBehaviour
             {
                 case 1:
                     {
-
+                        SoundManager.Inst.PlaySFX("SFX_Soil1");
                         sp.color = new Color(curColor.r, curColor.g, curColor.b, 0.9f);
                     }
                     break;
                 case 2:
                     {
+                        SoundManager.Inst.PlaySFX("SFX_Soil2");
                         sp.color = new Color(curColor.r, curColor.g, curColor.b, 0.5f);
                     }
                     break;
                 case 3:
                     {
+                        SoundManager.Inst.PlaySFX("SFX_Soil3");
                         ReadySceneManager.Inst.objectsList.Add(Instantiate(relicsCardPrefab, transform.position, Quaternion.identity));
                         ReadySceneManager.Inst.objectsList.Remove(gameObject);
                         Destroy(gameObject);
