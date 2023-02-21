@@ -39,6 +39,7 @@ public class Dust : MonoBehaviour
                         SoundManager.Inst.PlaySFX("SFX_Soil3");
                         ReadySceneManager.Inst.objectsList.Add(Instantiate(relicsCardPrefab, transform.position, Quaternion.identity));
                         ReadySceneManager.Inst.objectsList.Remove(gameObject);
+                        ReadySceneManager.Inst.removeDustCount++;
                         Destroy(gameObject);
                     }
                     break;

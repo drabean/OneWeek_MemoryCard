@@ -12,11 +12,12 @@ public class WaitingTime : MonoBehaviour
 
    [SerializeField]  AudioSource AS;
     public AudioClip[] clips;
-
+    public GameObject commonUI;
 
     private void Awake()
     {
         text_WaitingTime = GetComponent<TextMeshProUGUI>();
+        commonUI = FindObjectOfType<CommonUI>().gameObject;
     }
 
     void Update()
@@ -27,10 +28,13 @@ public class WaitingTime : MonoBehaviour
     void ReduceTime()
     {
         waitTime -= Time.deltaTime;
-        text_WaitingTime.text = "그림을 기억해 주세요!! " + waitTime.ToString("N0");
+        text_WaitingTime.text = waitTime.ToString("N0");
+        commonUI.SetActive(false);
         if (waitTime <= 0)
         {
-            text_WaitingTime.text = "같은 그림을 찾아주세요! ";
+            commonUI.SetActive(true);
+            text_WaitingTime.text = "";
+            GameManager.Inst.ChangeTextImage();
             GameManager.Inst.timer.StartTimer();
             isTimerOn = false;
             AS.Stop();

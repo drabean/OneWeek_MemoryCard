@@ -18,29 +18,43 @@ public class ClearManager : Singleton<ClearManager>
     bool isClick = false;
     void Start()
     {
-        if (GameDatas.Inst.theme == THEME.POLICE)
+
+        switch (GameDatas.Inst.theme)
         {
-            StartCoroutine(CO_Arrest());
+            case THEME.POLICE:
+                SoundManager.Inst.PlayBGM("BGM_Police");
+                StartCoroutine(CO_Arrest());
+                break;
+            case THEME.ARCHAEOLOGIST:
+                SoundManager.Inst.PlayBGM("BGM_Archaeologist");
+                Disposition();
+                break;
+            case THEME.DOCTOR:
+                SoundManager.Inst.PlayBGM("BGM_Doctor");
+                Disposition();
+                break;
         }
-        else
+        
+    }
+    public void Disposition()
+    {
+        SelectRandomNum();
+        // 
+        for (int i = 0; i < 3; i++)
         {
-            // 고고학자 테마 일 때 클리어 씬 내용
-            SelectRandomNum();
-            // 
-            for (int i = 0; i < 3; i++)
-            {
-                GameObject temp = Instantiate(cardObject[idxList[i]], location[i].position, Quaternion.identity, board.transform);
-                temp.SetActive(true);
-                temp.transform.localScale *= 2.25f;
-                objectList.Add(temp);
-            }
+            GameObject temp = Instantiate(cardObject[idxList[i]], location[i].position, Quaternion.identity, board.transform);
+            temp.SetActive(true);
+            temp.transform.localScale *= 2.25f;
+            objectList.Add(temp);
         }
     }
-
     IEnumerator CO_Arrest()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        SoundManager.Inst.PlaySFX("SFX_ClearPolice");
+        yield return new WaitForSeconds(1f);
         Instantiate(stamp, GameObject.Find("Canvas").transform);
+        SoundManager.Inst.PlaySFX("SFX_Clear");
         StartCoroutine(CO_GameOver());
 
     }
@@ -80,6 +94,7 @@ public class ClearManager : Singleton<ClearManager>
             board.GetComponent<Object_Move>().Move_Time(new Vector3(0, -6, 0), 1.5f);
             fadeOut.SetActive(true);
             Instantiate(stamp,GameObject.Find("Canvas").transform);
+            SoundManager.Inst.PlaySFX("SFX_Clear");
             StartCoroutine(CO_GameOver());
             isClick = true;
         }
@@ -88,8 +103,10 @@ public class ClearManager : Singleton<ClearManager>
     IEnumerator CO_GameOver()
     {
         yield return new WaitForSeconds(2.0f);
+        SoundManager.Inst.StopBGM();
+        fadeOut.SetActive(false);
         GameDatas.Inst.scene = SCENE.END;
-        SceneManager.LoadScene("5.EndScenes", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Additive_EndScene", LoadSceneMode.Additive);
     }
 
     public void Btn_GameOver()

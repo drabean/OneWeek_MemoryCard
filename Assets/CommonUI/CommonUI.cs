@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class CommonUI : MonoBehaviour
 {
-    public string startSceneName = "0.StartScene";
-    public string MainPackageName = "com.DefaultCompany.MinigameTownTest";
+    //MinigameTown의 PackageName
+    public string TownPackageName = "com.DefaultCompany.MinigameTownTest";
 
 
     public GameObject UIPanel;
@@ -22,41 +22,149 @@ public class CommonUI : MonoBehaviour
 
     public static CommonUI Inst;
 
+
+    public GameObject Group_Setting;
+    public GameObject Group_Town;
+
     private void Awake()
     {
-        if(Inst == null)
+        if (Inst == null)
         {
             Inst = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += changeBtnStatus;
         }
         else
         {
-            //이미 Inst가 존재하면, 생성하는 대신 Inst를 활성화시키는 방식.
-            Inst.gameObject.SetActive(true);
             Destroy(gameObject);
         }
 
     }
+
+
+    /// <summary>
+    /// 해당 함수 switch문에서 Scene 이름 넣어주시면 됩니다.
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
+    public void changeBtnStatus(Scene scene, LoadSceneMode mode)
+    {
+        switch(scene.name)
+        {
+            //UI가 필요없는 씬 (난이도 선택 씬 등)
+            
+            case "Additive_EndScene":
+                Group_Town.SetActive(false);
+                Group_Setting.SetActive(false);
+                break;
+
+            //마을로 가는 버튼 필요한 씬(타입 선택 씬 등)
+            case "0.StartScene":
+                Group_Town.SetActive(true);
+                Group_Setting.SetActive(false);
+                break;
+            //팝업 버튼 필요한 씬(위에 선택 씬 외의 모든 씬)
+            default:
+                Group_Town.SetActive(false);
+                Group_Setting.SetActive(true);
+                break;
+                
+        }
+    }
     public void Btn_Setting()
     {
+        //팝업 열기
         UIPanel.SetActive(true);
         Time.timeScale = 0f;
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
     }
 
     public void Btn_Restart()
     {
+        //restart 버튼 눌렀을때 동작은 여기에서
         Time.timeScale = 1f;
-        gameObject.SetActive(false);
         UIPanel.SetActive(false);
-        SoundManager.Inst.StopBGM();
-        SceneManager.LoadScene(startSceneName);
+        //현재 게임 타입 따라 분기가 필요
+        switch(GameDatas.Inst.theme)
+        {
+            case THEME.POLICE:
+                SceneManager.LoadScene("2.PoliceReadyScene");
+                SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+                break;
+            case THEME.ARCHAEOLOGIST:
+                SceneManager.LoadScene("2.ArchaeologistReadyScene");
+                SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+                break;
+            case THEME.DOCTOR:
+                SceneManager.LoadScene("2.DoctorReadyScene");
+                SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+                break;
+        }
 
     }
 
     public void Btn_Exit()
     {
+
+        //Exit버튼 눌렀을떄 동작은 여기에서
+        Time.timeScale = 1f;
+        UIPanel.SetActive(false);
+        SoundManager.Inst.PlayBGM("SFX_ChangeScene");
+        SceneManager.LoadScene("0.StartScene");
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+    }
+
+    public void Btn_Help()
+    {
+        Debug.Log("미?구현");
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+    }
+
+    public void Btn_BGM()
+    {
+        if (BGMOn)
+        {
+            SoundManager.Inst.setBGMVolume(0);
+            BGMOn = false;
+            Image_BGM.sprite = TogleImages[1];
+        }
+        else
+        {
+            SoundManager.Inst.setBGMVolume(1);
+            BGMOn = true;
+            Image_BGM.sprite = TogleImages[0];
+        }
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+    }
+
+    public void Btn_SFX()
+    {
+        if (SFXOn)
+        {
+            SoundManager.Inst.setSFXVolume(0);
+            SFXOn = false;
+            Image_SFX.sprite = TogleImages[1];
+        }
+        else
+        {
+            SoundManager.Inst.setSFXVolume(1);
+            SFXOn = true;
+            Image_SFX.sprite = TogleImages[0];
+        }
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+    }
+
+    public void Btn_Close()
+    {
+        UIPanel.SetActive(false); 
+        Time.timeScale = 1f;
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
+    }
+
+    public void Btn_MoveToTown()
+    {
 #if UNITY_ANDROID
-        if(!IsAppInstalled(MainPackageName))
+        if (!IsAppInstalled(TownPackageName))
         {
             Debug.Log("앱이 깔려있지 않습니다");
             return;
@@ -67,7 +175,7 @@ public class CommonUI : MonoBehaviour
 
         AndroidJavaObject pm = jo.Call<AndroidJavaObject>("getPackageManager");
 
-        AndroidJavaObject intent = pm.Call<AndroidJavaObject>("getLaunchIntentForPackage", MainPackageName);
+        AndroidJavaObject intent = pm.Call<AndroidJavaObject>("getLaunchIntentForPackage", TownPackageName);
 
         jo.Call("startActivity", intent);
 
@@ -105,45 +213,5 @@ public class CommonUI : MonoBehaviour
 #endif
 
     }
-    public void Btn_Help()
-    {
-        Debug.Log("미?구현");
-    }
-    public void Btn_BGM()
-    {
-        if (BGMOn)
-        {
-            SoundManager.Inst.setBGMVolume(0); 
-            BGMOn = false;
-            Image_BGM.sprite = TogleImages[1];
-        }
-        else
-        {
-            SoundManager.Inst.setBGMVolume(1);
-            BGMOn = true;
-            Image_BGM.sprite = TogleImages[0];
-        }
-    }
 
-    public void Btn_SFX()
-    {
-        if (SFXOn)
-        {
-            SoundManager.Inst.setSFXVolume(0);
-            SFXOn = false;
-            Image_SFX.sprite = TogleImages[1];
-        }
-        else
-        {
-            SoundManager.Inst.setSFXVolume(1);
-            SFXOn = true;
-            Image_SFX.sprite = TogleImages[0];
-        }
-    }
-
-    public void Btn_Close()
-    {
-        UIPanel.SetActive(false);
-        Time.timeScale = 1f;
-    }
 }

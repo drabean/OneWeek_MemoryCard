@@ -33,6 +33,6 @@ EditorBuildSettings:
     path: Assets/Scenes/4.ArchaeologistClearScene.unity
     guid: a340ae87d1769c94eb2318b8586daf43
   - enabled: 1
-    path: Assets/Scenes/5.EndScenes.unity
-    guid: 609aec8b3453bce4ea8111aa4147b5fa
+    path: Assets/Scenes/Additive_EndScene.unity
+    guid: 6bb4ca97504c1e245bcf5ae163b3f734
   m_configObjects: {}

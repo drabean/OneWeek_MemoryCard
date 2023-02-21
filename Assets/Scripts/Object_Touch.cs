@@ -18,6 +18,7 @@ public class Object_Touch : MonoBehaviour, Object_Interactive
         switch (GameDatas.Inst.scene)
         {
             case SCENE.READY:
+                SoundManager.Inst.PlaySFX("SFX_LightClick");
                 ReadySceneManager.Inst.ClickObject(gameObject);
                 move.Move_Speed(ReadySceneManager.Inst.NotePos.position, speed);
                 break;

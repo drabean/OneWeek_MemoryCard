@@ -64,6 +64,7 @@ public class Point : MonoBehaviour
         waitTime = 2;
         yield return new WaitForSeconds(2f);
         isLight = true;
+        ReadySceneManager.Inst.ChangeGuideTextImage();
         Destroy(waitingTimeText.gameObject);
         stethoscope.SetActive(false);
         childBody.SetActive(false);

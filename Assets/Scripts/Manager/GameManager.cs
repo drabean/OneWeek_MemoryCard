@@ -8,9 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst;
 
     public GameObject readyBtn;
+    public GameObject firstTextImage;
+    public GameObject secondTextImage;
     public Timer timer;
     public WaitingTime waitingTime;
-
     public void Awake()
     {
         if (Inst == null) Inst = this;
@@ -36,10 +37,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         CardManager.Inst.resetStage();
         waitingTime.startReduceTime();
-
         readyBtn.SetActive(false);
+        
     }
 
+    public void ChangeTextImage()
+    {
+        firstTextImage.SetActive(false);
+        secondTextImage.SetActive(true);
+    }
 
     public void EndApplication()
     {

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class ReadySceneManager : Singleton<ReadySceneManager>
 {
     public List<GameObject> objectsList = new List<GameObject>();
-
+    public int removeDustCount;
     public Transform NotePos;
+    public GameObject firstTextImage;
+    public GameObject secondTextImage;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class ReadySceneManager : Singleton<ReadySceneManager>
     public void ClickObject(GameObject obj)
     {
         objectsList.Remove(obj);
+        StartCoroutine(CO_RemoveObject());
         if (objectsList.Count == 0) GameOver();
     }
 
@@ -45,6 +48,16 @@ public class ReadySceneManager : Singleton<ReadySceneManager>
         GameDatas.Inst.scene = SCENE.GAME;
         SceneManager.LoadScene("3.GameScene");
     }
+    IEnumerator CO_RemoveObject()
+    {
+        yield return new WaitForSeconds(1f);
+        SoundManager.Inst.PlaySFX("SFX_LightDestroy");
+    }
+    public void ChangeGuideTextImage()
+    {
+        firstTextImage.SetActive(false);
+        secondTextImage.SetActive(true);
+    }
 
-
+    
 }
