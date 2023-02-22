@@ -44,6 +44,11 @@ public class Dust : MonoBehaviour
                     }
                     break;
             }
+            if (ReadySceneManager.Inst.removeDustCount == 10)
+            {
+                ReadySceneManager.Inst.ChangeGuideTextImage();
+                ReadySceneManager.Inst.removeDustCount = 0;
+            }
         }
     }
 

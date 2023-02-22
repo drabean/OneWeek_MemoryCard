@@ -819,12 +819,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d7e82f397ce03bb448e7fe90b6589425, type: 3}
   - {fileID: 8300000, guid: 6e798826d35795444b33241d8ee5d777, type: 3}
   - {fileID: 8300000, guid: a780ec6f6006eb4418f6fac2be56e8db, type: 3}
-  - {fileID: 8300000, guid: 4ccb615029f294b449c275755112d867, type: 3}
+  - {fileID: 8300000, guid: e4d134a1f1f731b4fbf9f0ecf90bee50, type: 3}
   - {fileID: 8300000, guid: 609bf637a7021974c96312c0983f0000, type: 3}
-  - {fileID: 8300000, guid: a32978f38695c434888382df82422c8f, type: 3}
-  - {fileID: 8300000, guid: a4e5998617355504a93c25536b20ab9d, type: 3}
-  - {fileID: 8300000, guid: 6d1825c868db1e84ab434a19df6c37ee, type: 3}
+  - {fileID: 8300000, guid: 24a818690f62b2e48be11caf01168a5b, type: 3}
+  - {fileID: 8300000, guid: 30fa0128fc13dd04691ff99a7c1157b2, type: 3}
+  - {fileID: 8300000, guid: 244092a0be970a34cbbbc450b43d1b0a, type: 3}
   - {fileID: 8300000, guid: d1a5148764665544293b928d04683a2c, type: 3}
+  - {fileID: 8300000, guid: c7eb1b03d6ff7db43bbf57557b50821e, type: 3}
   bgmPlayer: {fileID: 1944673739}
   sfxPlayer:
   - {fileID: 2122178481}
@@ -1913,10 +1914,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 94562635170517139, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 94562635605885360, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
       propertyPath: m_Name
       value: Canvas_CommonBtn
@@ -2003,18 +2000,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 94562635605885373, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 94562636148115334, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 94562636148115335, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 94562636148115335, guid: 3e7cc57c81f7a6d4d81cbeeffd3bc871, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

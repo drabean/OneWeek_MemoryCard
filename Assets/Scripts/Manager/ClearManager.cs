@@ -50,8 +50,8 @@ public class ClearManager : Singleton<ClearManager>
     }
     IEnumerator CO_Arrest()
     {
-        yield return new WaitForSeconds(2f);
-        SoundManager.Inst.PlaySFX("SFX_ClearPolice");
+        yield return new WaitForSeconds(2.5f);
+        SoundManager.Inst.PlaySFX("SFX_ClearPolice2");
         yield return new WaitForSeconds(1f);
         Instantiate(stamp, GameObject.Find("Canvas").transform);
         SoundManager.Inst.PlaySFX("SFX_Clear");
@@ -92,16 +92,27 @@ public class ClearManager : Singleton<ClearManager>
         if (!isClick)
         {
             board.GetComponent<Object_Move>().Move_Time(new Vector3(0, -6, 0), 1.5f);
-            fadeOut.SetActive(true);
-            Instantiate(stamp,GameObject.Find("Canvas").transform);
-            SoundManager.Inst.PlaySFX("SFX_Clear");
+            //fadeOut.SetActive(true);
+            //Instantiate(stamp,GameObject.Find("Canvas").transform);
+            //SoundManager.Inst.PlaySFX("SFX_Clear");
             StartCoroutine(CO_GameOver());
             isClick = true;
         }
     }
 
+    public void ClearEffect()
+    {
+        fadeOut.SetActive(true);
+        Instantiate(stamp, GameObject.Find("Canvas").transform);
+        SoundManager.Inst.PlaySFX("SFX_Clear");
+    }
     IEnumerator CO_GameOver()
     {
+        if (GameDatas.Inst.theme == THEME.DOCTOR || GameDatas.Inst.theme == THEME.ARCHAEOLOGIST)
+        {
+            yield return new WaitForSeconds(1.1f);
+            ClearEffect();
+        }
         yield return new WaitForSeconds(2.0f);
         SoundManager.Inst.StopBGM();
         fadeOut.SetActive(false);
@@ -109,14 +120,14 @@ public class ClearManager : Singleton<ClearManager>
         SceneManager.LoadScene("Additive_EndScene", LoadSceneMode.Additive);
     }
 
-    public void Btn_GameOver()
-    {
-        if (!isClick)
-        {
-            fadeOut.SetActive(true);
-            Instantiate(stamp, GameObject.Find("Canvas").transform);
-            StartCoroutine(CO_GameOver());
-            isClick = true;
-        }
-    }
+    //public void Btn_GameOver()
+    //{
+    //    if (!isClick)
+    //    {
+    //        fadeOut.SetActive(true);
+    //        Instantiate(stamp, GameObject.Find("Canvas").transform);
+    //        StartCoroutine(CO_GameOver());
+    //        isClick = true;
+    //    }
+    //}
 }

@@ -32,7 +32,8 @@ public class CommonUI : MonoBehaviour
         {
             Inst = this;
             DontDestroyOnLoad(gameObject);
-            SceneManager.sceneLoaded += changeBtnStatus;
+            SceneManager.sceneLoaded += ChangeBtnStatus;
+            SceneManager.sceneLoaded += ChangeSceneStatus;
         }
         else
         {
@@ -40,20 +41,47 @@ public class CommonUI : MonoBehaviour
         }
 
     }
-
+    /// <summary>
+    /// 현재 씬에 대한 정보를 전달해주는 함수
+    /// </summary>
+    /// <param name="scene"></param>
+    /// <param name="mode"></param>
+    public void ChangeSceneStatus(Scene scene, LoadSceneMode mode)
+    {
+        switch(scene.name)
+        {
+            case "2.ArchaeologistReadyScene":
+            case "2.DoctorReadyScene":
+            case "2.PoliceReadyScene":
+                GameDatas.Inst.scene = SCENE.READY;
+                break;
+            case "3.GameScene":
+                GameDatas.Inst.scene = SCENE.GAME;
+                break;
+            case "4.ArchaeologistClearScene":
+            case "4.DoctorClearScene":
+            case "4.PoliceClearScene":
+                GameDatas.Inst.scene = SCENE.CLEAR;
+                break;
+            case "Additive_EndScene":
+                GameDatas.Inst.scene = SCENE.END;
+                break;
+        }
+    }
 
     /// <summary>
     /// 해당 함수 switch문에서 Scene 이름 넣어주시면 됩니다.
     /// </summary>
     /// <param name="scene"></param>
     /// <param name="mode"></param>
-    public void changeBtnStatus(Scene scene, LoadSceneMode mode)
+    public void ChangeBtnStatus(Scene scene, LoadSceneMode mode)
     {
         switch(scene.name)
         {
             //UI가 필요없는 씬 (난이도 선택 씬 등)
             
             case "Additive_EndScene":
+            case "1.SelectModeScene":
                 Group_Town.SetActive(false);
                 Group_Setting.SetActive(false);
                 break;

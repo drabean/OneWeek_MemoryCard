@@ -14,7 +14,7 @@ public class StartSceneManager : MonoBehaviour
     public void Click_Easy()
     {
         Debug.Log("Easy");
-        SoundManager.Inst.PlaySFX("SFX_Click");
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
         GameDatas.Inst.difficulty = DIFFICULTY.EASY;
         SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.ReadyScene");
@@ -23,7 +23,7 @@ public class StartSceneManager : MonoBehaviour
     public void Click_Normal()
     {
         Debug.Log("Normal");
-        SoundManager.Inst.PlaySFX("SFX_Click");
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
         GameDatas.Inst.difficulty = DIFFICULTY.NORMAL;
         SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.GameScene");
@@ -33,7 +33,7 @@ public class StartSceneManager : MonoBehaviour
     {
 
         Debug.Log("Hard");
-        SoundManager.Inst.PlaySFX("SFX_Click");
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
         GameDatas.Inst.difficulty = DIFFICULTY.HARD;
         SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.GameScene");
@@ -42,7 +42,7 @@ public class StartSceneManager : MonoBehaviour
     public void Click_Master()
     {
         Debug.Log("Master");
-        SoundManager.Inst.PlaySFX("SFX_Click");
+        SoundManager.Inst.PlaySFX("SFX_ClickBtn");
         GameDatas.Inst.difficulty = DIFFICULTY.MASTER;
         SceneManager.LoadScene("1.SelectModeScene");
         //SceneManager.LoadScene("2.GameScene");

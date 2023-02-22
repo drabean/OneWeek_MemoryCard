@@ -20,7 +20,7 @@ public class TouchManager : MonoBehaviour
                 case TouchPhase.Began:
                     {
                         RaycastHit2D hit = Physics2D.Raycast(pos, transform.forward, maxDistance);
-
+                        
                         if (hit.collider != null)
                         {
                             if (hit.transform.TryGetComponent<Object_Interactive>(out Object_Interactive obj))
