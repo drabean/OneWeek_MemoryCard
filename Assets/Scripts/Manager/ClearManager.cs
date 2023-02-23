@@ -11,7 +11,8 @@ public class ClearManager : Singleton<ClearManager>
     public GameObject board; // 오브젝트들을 담고있는 보드
     public GameObject parentPos; // 부모객체로 만들 위치
     public GameObject fadeOut; // 화면을 검게 만드는 오브젝트
-    public GameObject stamp;  // 도장 이펙트
+    public GameObject stamp;  // 도장 이펙트 프리팹
+    GameObject stampObject = null; // 스템프를 나타내는 오브젝트
     List<int> idxList = new List<int>(); // 유물 3개를 선정하기 위한 인덱스를 가지고 있는 리스트
     List<int> remainList = new List<int>(); // 남아있는 인덱스 리스트
     List<GameObject> objectList = new List<GameObject>(); // 
@@ -53,7 +54,7 @@ public class ClearManager : Singleton<ClearManager>
         yield return new WaitForSeconds(2.5f);
         SoundManager.Inst.PlaySFX("SFX_ClearPolice2");
         yield return new WaitForSeconds(1f);
-        Instantiate(stamp, GameObject.Find("Canvas").transform);
+        stampObject =  Instantiate(stamp, GameObject.Find("Canvas").transform);
         SoundManager.Inst.PlaySFX("SFX_Clear");
         StartCoroutine(CO_GameOver());
 
@@ -103,7 +104,7 @@ public class ClearManager : Singleton<ClearManager>
     public void ClearEffect()
     {
         fadeOut.SetActive(true);
-        Instantiate(stamp, GameObject.Find("Canvas").transform);
+        stampObject = Instantiate(stamp, GameObject.Find("Canvas").transform);
         SoundManager.Inst.PlaySFX("SFX_Clear");
     }
     IEnumerator CO_GameOver()
@@ -117,6 +118,7 @@ public class ClearManager : Singleton<ClearManager>
         SoundManager.Inst.StopBGM();
         fadeOut.SetActive(false);
         GameDatas.Inst.scene = SCENE.END;
+        //Destroy(stampObject);
         SceneManager.LoadScene("Additive_EndScene", LoadSceneMode.Additive);
     }
 
