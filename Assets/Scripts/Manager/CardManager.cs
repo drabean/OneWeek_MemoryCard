@@ -163,7 +163,6 @@ public class CardManager : MonoBehaviour
             else
             {
                 StartCoroutine(CO_TwoCardDiff());
-
             }
         }
     }

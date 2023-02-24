@@ -118,7 +118,7 @@ public class ClearManager : Singleton<ClearManager>
         SoundManager.Inst.StopBGM();
         fadeOut.SetActive(false);
         GameDatas.Inst.scene = SCENE.END;
-        //Destroy(stampObject);
+        Destroy(stampObject);
         SceneManager.LoadScene("Additive_EndScene", LoadSceneMode.Additive);
     }
 
