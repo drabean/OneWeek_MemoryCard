@@ -10,6 +10,7 @@ public class CardManager : MonoBehaviour
     public GameObject[] CardPrefab;
     public GameObject[] BoardPrefabs;
     public GameObject selectCard;
+    public GameObject wrongAniPrefabs; // 틀렸을 시 나오는 애니메이션
     int boardIdx; // 게임보드 선정을 위한 인덱스
     public List<Card> cards;
 
@@ -242,20 +243,24 @@ public class CardManager : MonoBehaviour
 
         yield return waitForCard;
         SoundManager.Inst.PlaySFX("SFX_Wrong");
-
-
+        
         card1.Flip(false);
         card2.Flip(false);
     }
 
     //waitDelay동안 카드 뒤집어지는거 막음
-    WaitForSeconds waitDelay = new WaitForSeconds(0.5f);
+    WaitForSeconds waitDelay = new WaitForSeconds(1f);
     IEnumerator CO_DiffCardDelay()
     {
         canPickCard = false;
-        yield return  waitDelay;
+        yield return waitDelay;
+        wrongAniPrefabs.SetActive(true);
+        yield return waitDelay;
+        wrongAniPrefabs.SetActive(false);
         canPickCard = true;
     }
+
+    
 
     /// <summary>
     /// 카드 전체를 뒤집는 함수 true일 때 앞면 false일 때 뒷면
