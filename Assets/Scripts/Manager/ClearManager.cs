@@ -51,7 +51,7 @@ public class ClearManager : Singleton<ClearManager>
     }
     IEnumerator CO_Arrest()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3f);
         SoundManager.Inst.PlaySFX("SFX_ClearPolice2");
         yield return new WaitForSeconds(1f);
         stampObject =  Instantiate(stamp, GameObject.Find("Canvas").transform);
