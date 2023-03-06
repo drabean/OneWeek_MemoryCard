@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class EndSceneManager : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI nameTMP;
+    public TextMeshProUGUI nameTMP;
     [SerializeField] Text scoreText;
     [SerializeField] Text rewardStarText;
 
     //highscore일때만 보여주는거
     public GameObject HighScoreImage;
 
+    public InGameRanking inGameRanking = null;
 
     public int rewardStar;
 
@@ -93,9 +94,15 @@ public class EndSceneManager : MonoBehaviour
                 }
                 break;
         }
-        
+
+
+
         rewardStarText.text = "X"+rewardStar;
         //reward 실제 변경 함수는 이쪽에 추가
+
+        inGameRanking.EndingSceneSequnce((float)System.Math.Round((GameDatas.Inst).time,2),rewardStar,1,GameDatas.Inst.difficulty);
+
+
     }
 
     public void ExitRoom()
